@@ -4,7 +4,7 @@
 
 [<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/pankaj139)
 [<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:pankaj139@gmail.com)
-[<img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white" />](https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME) *(<-- Replace with your live portfolio URL!)*
+[<img src="https://img.shields.io/badge/Portfolio-255E63?style=for-the-badge&logo=react&logoColor=white" />]([https://YOUR_USERNAME.github.io/YOUR_REPOSITORY_NAME](https://pankaj139.github.io/pankaj139/index.html)) 
 
 ---
 
