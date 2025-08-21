@@ -13,13 +13,15 @@
  * - Interactive project modals
  * - Professional portfolio layout
  * - Mobile-friendly interface
+ * - Dynamic SEO updates
  * 
  * Author: Pankaj Khandelwal
  * Created: 2024
- * Updated: 2024 - Added comprehensive documentation
+ * Updated: 2024 - Added comprehensive documentation and dynamic SEO
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { updateSEO } from './utils/seo';
 
 // --- Data ---
 // It's a best practice to keep your data separate from your components.
@@ -824,6 +826,15 @@ export default function App() {
   const handleCloseModal = () => {
     setSelectedProject(null);
   };
+
+  useEffect(() => {
+    updateSEO({
+      title: `${portfolioData.name} - ${portfolioData.title}`,
+      description: portfolioData.summary,
+      ogTitle: `${portfolioData.name} - ${portfolioData.title}`,
+      ogDescription: portfolioData.summary
+    });
+  }, []);
 
   return (
     <div className="bg-gray-900 font-sans">
