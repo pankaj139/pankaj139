@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pankaj Khandelwal - Engineering Leader</title>
+    <!-- Chosen Palette: Warm Neutral -->
+    <!-- Application Structure Plan: The SPA is structured into thematic sections (About, Timeline, Projects, Skills) to support both linear scanning and deep-dive exploration. A key feature is the interactive timeline where clicking a company reveals its projects. A filterable project grid allows users (recruiters) to quickly find relevant experience. This non-linear, task-oriented structure is more engaging and user-friendly for exploring a detailed career history than a simple document. -->
+    <!-- Visualization & Content Choices: Experience -> Goal: Show career progression -> Viz: Interactive vertical timeline (HTML/CSS) -> Interaction: Click to expand/collapse company projects. Projects -> Goal: Allow detailed exploration -> Viz: Filterable card grid with modal pop-up (HTML/CSS/JS) -> Interaction: Click to view details, click filters to update grid. Skills -> Goal: Quick overview of technical breadth -> Viz: Grouped skill badges (HTML/CSS). NO SVG/Mermaid used. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f7f4;
+            color: #404040;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-md sticky top-0 z-40 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0">
+                    <a href="#" class="text-2xl font-bold text-gray-800">Pankaj Khandelwal</a>
+                </div>
+                <nav class="hidden md:flex md:space-x-8">
+                    <a href="#about" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">About</a>
+                    <a href="#experience" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Experience</a>
+                    <a href="#projects" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-600 hover:text-teal-600 font-medium transition-colors">Skills</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="py-20 lg:py-32 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-4xl lg:text-6xl font-extrabold text-gray-900 tracking-tight">
+                    Building & Leading High-Performing Engineering Teams
+                </h1>
+                <p class="mt-6 max-w-3xl mx-auto text-lg lg:text-xl text-gray-600">
+                    A technical leader focused on mentorship, process improvement, and delivering business impact through scalable cloud architecture and engineering best practices.
+                </p>
+                <div class="mt-8 flex justify-center space-x-4">
+                    <a href="mailto:pankaj139@gmail.com" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-teal-600 hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        Contact Me
+                    </a>
+                    <a href="https://linkedin.com/in/pankaj139" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 text-center">About Me</h2>
+                    <p class="mt-6 text-lg text-gray-600 leading-relaxed">
+                        I am a seasoned engineering leader with over a decade of experience building and mentoring high-performing teams. My leadership philosophy is centered on creating an environment of psychological safety and empowering engineers with clear ownership. I specialize in architecting robust cloud solutions—from resilient microservices to automated infrastructure—and establishing the engineering best practices that drive efficiency, reliability, and business impact. I have a proven track record of leading complex technical migrations and modernizing legacy systems to deliver measurable business impact. I foster a culture of continuous improvement, where teams learn from challenges through blameless postmortems and data-driven decision-making to consistently refine our processes and technology.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Timeline -->
+        <section id="experience" class="py-20 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Career Journey</h2>
+                <div id="timeline-container" class="relative border-l-2 border-teal-200 max-w-3xl mx-auto">
+                    <!-- Timeline items will be dynamically inserted here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 lg:py-24">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 text-center">Project Showcase</h2>
+                <p class="mt-4 max-w-2xl mx-auto text-center text-gray-600">
+                    An in-depth look at key projects, highlighting my role in architecture, leadership, and delivering impactful results. Use the filters to explore projects by company.
+                </p>
+                <div id="filters-container" class="mt-8 flex justify-center flex-wrap gap-2">
+                    <!-- Filter buttons will be dynamically inserted here -->
+                </div>
+                <div id="projects-grid" class="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Project cards will be dynamically inserted here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 lg:py-24 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-3xl font-bold text-gray-900 text-center mb-12">Core Competencies</h2>
+                    <div id="skills-container" class="space-y-8">
+                        <!-- Skills will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+            <p class="text-gray-400">&copy; 2025 Pankaj Khandelwal. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for Project Details -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-70 z-50 hidden items-center justify-center p-4" onclick="closeModal()">
+        <div class="bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="p-6 md:p-8 sticky top-0 bg-white/80 backdrop-blur-sm flex justify-between items-center border-b border-gray-200">
+                <h3 id="modal-title" class="text-2xl font-bold text-gray-900"></h3>
+                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800">
+                    <span class="text-2xl font-bold">&times;</span>
+                </button>
+            </div>
+            <div id="modal-content" class="p-6 md:p-8">
+                <!-- Modal content will be dynamically inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const portfolioData = {
+            experiences: [
+                {
+                    company: "Highspot India Pvt Ltd",
+                    role: "Sr. Software Development Engineer / Tech Lead",
+                    period: "Apr 2024 - Present",
+                    points: [
+                        "Led and mentored a technical team of 6 engineers focused on critical DevOps and Observability initiatives, guiding project direction and unblocking team members.",
+                        "Drove a strategic migration of observability tools to New Relic, coordinating technical efforts that resulted in $1 million in annual savings.",
+                        "Initiated and owned the development of automated incident resolution processes for Solr, improving system reliability and reducing mean time to resolution (MTTR) by 40%.",
+                        "Architected and delivered a common logging library that reduced time spent on debugging by an estimated 15% across development teams."
+                    ],
+                    projects: ["highspot-metadata", "highspot-launchdarkly", "new-relic-migration", "solr-automation"]
+                },
+                {
+                    company: "Darwin Box Digital Solution Pvt Ltd",
+                    role: "Engineering Manager",
+                    period: "Mar 2023 - Oct 2023",
+                    points: [
+                        "Implemented and streamlined processes, resulting in a 20% increase in team productivity and a 50% reduction in production issues.",
+                        "Managed a cross-functional team of 6 engineers, overseeing the successful development and delivery of a new performance management module.",
+                        "Mentored and coached the team, fostering a high-performing work environment where two engineers were promoted within the year."
+                    ],
+                    projects: ["darwinbox-singpass", "darwinbox-process"]
+                },
+                {
+                    company: "Acquia India Pvt Ltd.",
+                    role: "Principal Software Engineer / Tech Lead",
+                    period: "Jul 2020 - Mar 2023",
+                    points: [
+                        "As Technical Lead, directed the architectural vision for Acquia Search, resulting in 99.96% uptime over a 12-month period for a service handling billions of requests daily.",
+                        "Groomed and mentored a distributed team of 10 engineers, fostering technical growth and project ownership.",
+                        "Successfully led the engineering effort to achieve FedRamp and PCI compliance, unblocking entry into key government and enterprise markets."
+                    ],
+                    projects: ["acquia-search", "acquia-cogs", "acquia-ping"]
+                },
+                {
+                    company: "Deloitte Consulting India Pvt Ltd.",
+                    role: "Senior Consultant",
+                    period: "Jun 2018 - Jul 2020",
+                    points: [
+                        "Led the architecture and development of the Bersin Member site, which increased user engagement by 25% and supported a 30% growth in membership subscriptions.",
+                        "Designed a scalable architecture to migrate a legacy web application to AWS, resulting in a 40% reduction in operational costs."
+                    ],
+                    projects: ["deloitte-ifb", "deloitte-bersin"]
+                },
+                {
+                    company: "Infoedge India Ltd",
+                    role: "Lead Architect & Developer",
+                    period: "Aug 2015 - May 2018",
+                    points: [
+                        "Led the migration from a monolithic to a microservices-based architecture, a transition that increased deployment frequency by 200% and accelerated feature delivery.",
+                        "Led the Chat Team in delivering a new real-time messaging feature for Jeevansathi.com that lifted user interaction rates by 35%."
+                    ],
+                    projects: ["infoedge-auth", "infoedge-chat", "infoedge-redis", "infoedge-rabbitmq"]
+                },
+                {
+                    company: "Avyukta Infotech",
+                    role: "Founder / Lead Architect",
+                    period: "Oct 2014 - Aug 2015",
+                    points: [
+                        "Designed, scaled, and operated two e-commerce deals aggregator websites, growing the user base from 0 to 10,000 monthly active users within the first year."
+                    ],
+                    projects: ["avyukta-startup"]
+                },
+                {
+                    company: "Infoedge India Ltd",
+                    role: "Sr. Software Engineer",
+                    period: "May 2012 - Oct 2014",
+                    points: [
+                        "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application."
+                    ],
+                    projects: ["infoedge-contact-engine"]
+                },
+                {
+                    company: "Sapient Consulting India Pvt Ltd",
+                    role: "Associate TRM",
+                    period: "Jul 2010 - May 2012",
+                    points: [
+                        "Contributed to the development and enhancement of the OpenLink Endur platform for a leading European energy trading company."
+                    ],
+                    projects: []
+                }
+            ],
+            projects: {
+                "highspot-metadata": {
+                    title: "Platform-Wide Observability Data Enrichment",
+                    overview: "Architected a platform-wide metadata enrichment system, enabling team-specific observability dashboards and accurate cost attribution.",
+                    businessNeed: "As our platform scaled, the volume of observability data grew exponentially. A significant business challenge was our inability to attribute this data to the teams or features generating it. This created two major problems: 1) Engineering teams could not create focused, team-specific dashboards, hindering their ability to monitor their own services effectively. 2) We could not accurately forecast or attribute the substantial costs associated with our observability platform, making budgeting a challenge. The goal was to enrich all observability signals with contextual metadata (owning team, feature, action) with minimal overhead for development teams.",
+                    challenges: "The primary technical challenge was to design a system that could transparently and reliably inject this metadata across a diverse, polyglot environment (Ruby, Java) and for various execution contexts, including synchronous web requests, background jobs, and other asynchronous tasks. This required a deep understanding of the application's core entry points and a solution that would not require manual instrumentation by every developer for every new feature.",
+                    implementation: "I designed and led the implementation of a centralized, configuration-based enrichment system. The core of the architecture is a single, version-controlled YAML file that serves as a central registry, mapping every known action (e.g., an API endpoint route, a job class name) to its corresponding metadata. At application startup, this configuration is loaded into memory. I modified the primary entry points of our applications—creating middleware for web requests and wrappers for our job processing frameworks—to act as interception points. At the beginning of any request or job, this interception layer identifies the action being performed, looks up its metadata in the in-memory registry, and injects this context into the thread's execution context. Finally, I updated our platform's common logging and metrics libraries to automatically inspect the thread context for this metadata and attach it as attributes to every log line, metric, and trace emitted during the lifetime of that request or job.",
+                    impact: "This system successfully decoupled the need for context from the implementation details. It empowered every engineering team to build their own dashboards in New Relic, filtered to their specific services and features, which significantly improved their ownership and monitoring capabilities. Financially, it provided the business with the ability to accurately attribute observability costs, leading to more informed budgeting. The rich, queryable context on all observability signals also vastly improved the debugging experience for the entire engineering organization.",
+                    techStack: ["Ruby", "Java", "New Relic", "YAML", "Observability"]
+                },
+                "highspot-launchdarkly": {
+                    title: "Feature Flag System Migration to LaunchDarkly",
+                    overview: "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
+                    businessNeed: "Our in-house feature flagging system was a critical part of our CI/CD process but was becoming a bottleneck. It lacked advanced capabilities essential for modern release strategies, such as percentage-based rollouts, advanced user targeting, and a comprehensive audit trail. Furthermore, its ongoing maintenance was consuming valuable engineering resources. The project's goal was to migrate to a third-party solution, LaunchDarkly, to improve release safety, unlock advanced deployment strategies for our developers, and eliminate the maintenance burden.",
+                    challenges: "The migration of a system so deeply integrated into the codebase and release process presented significant risks. The primary challenge was to design a seamless migration path that would not disrupt ongoing feature development or require a massive, 'big bang' refactoring effort across all teams. The solution also needed to be future-proof, allowing us to easily switch vendors again if necessary. Finally, we had to cleanse and migrate hundreds of existing feature flags, many of which were obsolete.",
+                    implementation: "I architected a new, cross-platform abstraction library for both our Ruby and Java codebases. This library provided a single, standard interface for all feature flagging operations. The key to the design was a built-in fallback mechanism that allowed for a safe, phased migration. The rollout strategy was: 1) **Legacy First:** The library would first check the legacy system, with LaunchDarkly as a fallback. 2) **LaunchDarkly First:** We switched the library's priority to check LaunchDarkly first, with the legacy system as a fallback. 3) **Decommission:** Once all flags were migrated and validated, we removed the legacy system completely. I led the analysis of all existing flags and drove the effort to deprecate over 30% of them. I also wrote and executed the migration scripts to move all active flags and their variations to LaunchDarkly, including a thorough validation process.",
+                    impact: "The migration empowered our development teams with advanced release capabilities, enabling safer and more controlled feature rollouts. It completely eliminated the maintenance overhead of the legacy in-house system. The abstract library design de-risked the migration and made our entire feature flagging system more maintainable and adaptable for the future.",
+                    techStack: ["LaunchDarkly", "Ruby", "Java", "Migration Strategy", "API Design"]
+                },
+                "new-relic-migration": {
+                    title: "Strategic Migration of Observability Tools to New Relic",
+                    overview: "Drove a strategic migration of observability tools to New Relic, resulting in $1 million in annual savings.",
+                    businessNeed: "Our observability stack was fragmented across ELK, Grafana, and Rollbar. This led to high infrastructure and maintenance costs, and siloed data made debugging inefficient as engineers had to correlate information across multiple platforms. The goal was to consolidate onto a single platform, New Relic, to reduce costs and improve developer efficiency.",
+                    challenges: "The initial discovery phase revealed a lack of documentation for existing data pipelines and a massive data volume of 18TB/day, nearly 6x our initial estimate, which would have made a direct migration prohibitively expensive. The migration required a complex technical transition across a polyglot environment, not a simple endpoint switch.",
+                    implementation: "I initiated a deep-dive to document all data sources and flows. To tackle the data volume, I developed a custom tool in Python to programmatically identify and eliminate unused and high-cardinality metrics from Prometheus. My team configured FluentBit to filter and forward logs from our services (Ruby, Java, Clojure) to New Relic. To ensure a safe transition, I executed a phased migration using a dual-target approach, sending data to both old and new systems for validation before decommissioning the legacy stack.",
+                    impact: "The project achieved **$1 million in annual savings** through tool consolidation and data optimization. It also reduced debugging time by an estimated 15% by providing a unified view of logs, traces, and errors, significantly improving system reliability and developer efficiency.",
+                    techStack: ["New Relic", "FluentBit", "Prometheus", "Grafana", "Python", "Ruby", "Java", "Clojure"]
+                },
+                "solr-automation": {
+                    title: "Automated Incident Resolution for Solr",
+                    overview: "Initiated and owned the development of automated incident resolution processes for Solr, reducing MTTR by 40%.",
+                    businessNeed: "Our Solr instances were frequently failing due to out-of-memory errors. The manual recovery process was slow, repetitive, and required on-call engineer intervention, leading to increased downtime and taking focus away from root cause analysis. The goal was to automate this recovery process to improve reliability and reduce the on-call burden.",
+                    challenges: "The primary challenge was to create a secure and reliable automation that could interact with our production infrastructure without manual oversight. This required a secure way to trigger the remediation and execute commands on the affected instances.",
+                    implementation: "I architected a 'self-healing' automation using a serverless approach. I configured a New Relic alert on Solr heap memory to fire a webhook to an AWS API Gateway. This gateway triggers an AWS Lambda function that parses the payload to identify the unhealthy host. The Lambda function then uses AWS Systems Manager (SSM) Run Command to securely execute a restart script on the specific machine. A key strategic trade-off was made to prioritize an immediate restart over a slower, graceful connection draining, as the node was already unhealthy and this was the fastest path to recovery.",
+                    impact: "This automation reduced the Mean Time To Resolution (MTTR) for this incident type by **40%**. It completely eliminated the need for on-call engineer intervention for this common failure, significantly improving the reliability of the Solr cluster and reducing the team's on-call burden.",
+                    techStack: ["AWS Lambda", "API Gateway", "SSM Run Command", "New Relic", "Python"]
+                },
+                "darwinbox-singpass": {
+                    title: "Singpass Integration for Candidate Onboarding",
+                    overview: "Led the integration of Singapore's Singpass identity service, dramatically simplifying the onboarding experience.",
+                    businessNeed: "For our clients in Singapore, the candidate onboarding process was a significant point of friction. Candidates had to manually fill out a lengthy form with personal information, a process that was both time-consuming and prone to data entry errors. This, in turn, created a substantial downstream workload for HR teams who had to manually review and verify this information. The project's goal was to integrate with Singapore's national digital identity system, Singpass, to create a seamless, one-click onboarding experience.",
+                    challenges: "The primary technical challenge was the requirement to implement a complex, multi-step OAuth 2.1 flow without using any third-party libraries, due to strict internal codebase policies. This meant building the entire authorization and token exchange logic from the ground up. Furthermore, the official Singpass API had stringent security requirements, necessitating the creation of a new, isolated, and highly secure microservice to handle all interactions.",
+                    implementation: "As the Engineering Manager, I architected and led the implementation of a new, secure microservice dedicated to handling the Singpass integration. My team built the entire OAuth 2.1 flow from scratch, including the browser-based authorization redirects and the secure, server-to-server token exchange using client assertions. I collaborated closely with another developer who was responsible for the frontend component. My service would handle the complex authentication and data retrieval, and then securely pass the verified government data to the frontend, which would then automatically populate the candidate's onboarding form.",
+                    impact: "This project transformed the candidate onboarding experience from a tedious manual task into a seamless one-click process. It completely eliminated data entry errors and significantly reduced the time required for our clients' HR teams to review and verify candidate information. We successfully delivered a highly secure integration that met both our internal and external compliance standards, providing a significant competitive advantage for our product in the Singaporean market.",
+                    techStack: ["PHP", "OAuth 2.1", "Microservices", "Security"]
+                },
+                "darwinbox-process": {
+                    title: "Process Implementation and Team Stabilization",
+                    overview: "Implemented and streamlined processes, resulting in a 20% increase in team productivity and a 50% reduction in production issues.",
+                    businessNeed: "When I joined the team, it was in a reactive state with no stable priorities, a high bug load, and a lack of engineering leadership. This led to constant context switching, low morale, and an inability to deliver features predictably. The goal was to implement foundational agile processes to stabilize the team and create a predictable delivery cadence.",
+                    challenges: "The main challenges were cultural and process-oriented: gaining alignment with the Product Manager on a stable, committed roadmap, and breaking the team's cycle of constant bug-fixing to create space for planned feature development.",
+                    implementation: "I instituted a formal sprint planning process, ensuring the team and PM committed to a fixed scope of work for each sprint. To tackle the technical debt, I organized dedicated 'bug bash' sprints in collaboration with QA to systematically reduce the bug backlog. I established myself as the single point of contact for engineering, shielding the team from distractions and clarifying technical dependencies. Finally, I introduced daily stand-ups and regular retrospectives to improve visibility and foster a culture of continuous improvement.",
+                    impact: "These changes resulted in a **20% increase in team productivity**, measured by ticket velocity per sprint, and a **50% reduction in production issues**. More importantly, it vastly improved team morale and the predictability of our feature delivery.",
+                    techStack: ["JIRA", "Agile", "Scrum", "Process Improvement"]
+                },
+                "acquia-search": {
+                    title: "Acquia Search Platform Modernization",
+                    overview: "As Technical Lead, directed the architectural vision for Acquia Search, resulting in 99.96% uptime.",
+                    businessNeed: "The Acquia Search platform was a critical, high-traffic service handling billions of requests daily. However, it was built on a legacy, fragile version of Solr 3 with single-replica indexes, leading to reliability issues. Critically, all infrastructure management—from provisioning new customer clusters to resizing existing ones—was a slow, manual process requiring engineer intervention. This was not scalable and was a significant operational burden. The goal was to re-architect the entire platform to be a modern, highly available, and fully automated self-service system.",
+                    challenges: "The project involved upgrading a core, live service without impacting thousands of existing customers. The primary technical challenges were automating the complex infrastructure provisioning to create a true self-service platform and managing the migration of existing customer data from Solr 3 to Solr 7, which had significant underlying schema and configuration changes.",
+                    implementation: "As the technical lead, I directed the architectural vision for the new platform. We chose to upgrade from Solr 3 to Solr 7 to leverage its native SolrCloud capabilities. I designed the new standard architecture to enforce high availability, with 3 replicas for every collection, distributed across multiple AWS Availability Zones. My team used AWS CloudFormation to automate the entire infrastructure lifecycle, treating our infrastructure as code. This made the provisioning of new clusters repeatable, reliable, and fast. I designed and led the development of a comprehensive set of internal APIs that powered a new self-service platform, allowing customers to provision, manage, and configure their own Solr collections directly via a UI or API. After evaluating the complexity of a direct data migration, we made a strategic decision to not build an automated data migration tool. Instead, we focused on providing customers with a seamless experience on the new platform to create their new collections and re-index their data at their own pace.",
+                    impact: "This project transformed the service from a manual, high-touch system into a fully automated, self-service platform. We drastically improved reliability, achieving **99.96% uptime**. The automation completely eliminated the dependency on the support and engineering teams for all provisioning and management tasks, freeing up valuable resources to focus on new features.",
+                    techStack: ["AWS CloudFormation", "Solr", "Zookeeper", "Java", "PHP"]
+                },
+                "acquia-cogs": {
+                    title: "Infrastructure Cost Optimization",
+                    overview: "Led a cost-optimization initiative that reduced infrastructure COGS by over 50% annually.",
+                    businessNeed: "The standard Solr cluster deployment consisted of 5 dedicated Solr nodes and 3 separate Zookeeper nodes. With a large number of clusters, this architecture was expensive, costing over $1 million annually. My analysis showed that the clusters were significantly underutilized, and the goal was to reduce costs without compromising performance or availability.",
+                    challenges: "The main challenge was safely co-locating Zookeeper and Solr services on the same instances, a significant architectural change with potential risks of resource contention. This required a deep, data-driven understanding of the resource consumption of both services under various loads.",
+                    implementation: "I led a deep analysis of a year's worth of performance data to understand the resource consumption patterns of different cluster sizes. My team then performed software-level optimizations, tuning Java Garbage Collection (GC) and heap memory settings. Based on the data, I re-architected the cluster to co-locate the Zookeeper ensemble on three of the Solr nodes, eliminating the need for dedicated Zookeeper instances. We set hard memory limits for Zookeeper to mitigate any risk of resource contention. After further observation, my team and I confidently downsized the EC2 instance types for each cluster.",
+                    impact: "This initiative reduced annual infrastructure costs by **over 50%** while maintaining the same high levels of performance and uptime. It also established a data-driven methodology for future cost-optimization efforts within the organization.",
+                    techStack: ["AWS EC2", "Solr", "Zookeeper", "JVM Tuning", "Cost Optimization"]
+                },
+                "acquia-ping": {
+                    title: "Scalable Monitoring for Solr Collections",
+                    overview: "Re-architected a critical monitoring system to scale for 20,000+ services, ensuring 100% monitoring coverage.",
+                    businessNeed: "A core monitoring process, designed to ping over 20,000 Solr collections every two minutes, was built on a single, monolithic Lambda function. As the platform grew, this function began to time out, failing to complete its run and creating a massive blind spot in our monitoring and alerting. The system needed to be re-architected to be scalable and reliable.",
+                    challenges: "The existing monolithic architecture could not scale horizontally, and the process had a strict time limit of two minutes to complete. The failure of the system was leading to unreliable alerting and a lack of confidence in our monitoring.",
+                    implementation: "I re-architected the process using a serverless, event-driven, fan-out pattern. The new workflow begins with a Lambda that groups all 20,000+ collections by their parent cluster. I chose AWS Step Functions to orchestrate the process, which then triggers dozens of parallel Lambda functions—one for each cluster—to perform the pings simultaneously. Each worker Lambda publishes its results to an SNS topic, decoupling the ping process from the aggregation. A final aggregator Lambda consumes the results from SNS, compiles the final status, and sends it to our observability tool.",
+                    impact: "The new architecture reduced the total execution time from over two minutes (and timing out) to a consistent **~90 seconds**. We achieved 100% monitoring coverage for all collections, eliminating the previous blind spot and drastically reducing the number of false-positive alerts.",
+                    techStack: ["AWS Lambda", "AWS Step Functions", "AWS SNS", "Python", "Serverless"]
+                },
+                "deloitte-ifb": {
+                    title: "API Performance Optimization",
+                    overview: "Drastically improved a critical API's performance, reducing response time from over 60 seconds to under 1 second.",
+                    businessNeed: "A key API on the Interactive Framework Benchmark (IFB) website, a tool for HR clients, was taking over a minute to respond. This made the user experience unusable and caused frequent timeouts, rendering a core feature of the product ineffective.",
+                    challenges: "The primary challenge was diagnosing the root cause of the performance issue within a large, unfamiliar, and custom-built PHP framework with no prior documentation.",
+                    implementation: "I took the initiative to profile the application and quickly identified a classic N+1 query problem where the code was executing over 1,000 individual database queries inside a loop. I dove into the unfamiliar codebase, understood the data model and business logic, and led the refactoring effort to replace the loop with a single, optimized database query to fetch all the required data at once.",
+                    impact: "This optimization reduced the API response time from over 60 seconds to **under 1 second**, a ~98% improvement. This made the interactive benchmark feature usable for clients and demonstrated my ability to quickly learn a new codebase and solve complex performance problems.",
+                    techStack: ["PHP", "Custom Framework", "MySQL", "Performance Tuning"]
+                },
+                "deloitte-bersin": {
+                    title: "Bersin Member Site Modernization",
+                    overview: "Led the architecture and development of the Bersin Member site, which increased user engagement by 25%.",
+                    businessNeed: "The Bersin site, a paywalled HR research portal, was built on a legacy, non-MVC codebase. Its user experience was hampered by poor search, a lack of content recommendations, and suboptimal performance. The developer workflow was also inefficient, with templates managed in a database instead of version control.",
+                    challenges: "Modernizing the entire application stack without disrupting the content publishing workflow. Improving core user-facing features like search and content discovery. Establishing a modern, version-controlled developer process.",
+                    implementation: "I led the re-architecture of the entire backend from unstructured PHP to the Laravel MVC framework. My team migrated all page templates from the database into the codebase, enabling version control with Git. We implemented a new, powerful search experience using Solr, including features like query highlighting. I led the integration of a new recommendation engine, built by a dedicated machine learning team, to provide smarter content suggestions. My team leveraged Redis for caching to dramatically improve page load times and overall application performance.",
+                    impact: "Increased user engagement by 25% through a vastly improved user experience. Modernized the tech stack, making the application more secure, scalable, and maintainable. Significantly improved the developer workflow, leading to faster feature delivery.",
+                    techStack: ["PHP", "Laravel", "Solr", "Redis", "MySQL", "Git"]
+                },
+                "infoedge-auth": {
+                    title: "Authentication Microservice",
+                    overview: "Led the design of a new authentication microservice, achieving <5ms latency and enabling a company-wide microservices migration.",
+                    businessNeed: "As part of a company-wide migration from a PHP monolith to Java-based microservices, a centralized and highly performant authentication service was required. The existing auth logic was a tightly-coupled performance bottleneck within the monolith, unable to handle increasing peak traffic and blocking the development of new services.",
+                    challenges: "Designing a foundational service that all other new microservices would depend on. Achieving an extremely aggressive performance target of <5ms per request to ensure it would never be a bottleneck.",
+                    implementation: "I led the design and implementation of a new, standalone authentication microservice using Java and the Spring Boot framework. To achieve the performance goals, I architected a stateless authentication model using JSON Web Tokens (JWTs). My team leveraged a high-performance Redis cluster for all session and token management, ensuring lightning-fast data lookups.",
+                    impact: "We achieved a consistent API response time of **under 5 milliseconds**, exceeding the project's performance goals. This created a critical, foundational service that unblocked the broader company initiative to migrate to a microservices architecture and delivered a secure, scalable, and reliable authentication system for the entire platform.",
+                    techStack: ["Java", "Spring Boot", "JWT", "Redis", "MySQL"]
+                },
+                "infoedge-chat": {
+                    title: "Real-Time Chat Feature Overhaul",
+                    overview: "Overhauled the real-time chat infrastructure, leading to a 600% increase in user engagement.",
+                    businessNeed: "The existing chat feature was built on an old, single-server version of Openfire, making it highly unreliable. It also had poor UI visibility and was not integrated into the mobile apps, leading to extremely low user adoption. The goal was to build a modern, reliable chat platform to drive user engagement.",
+                    challenges: "The main challenge was architecting a new system that could handle a massive increase in load from new features (like 'online status') and the upcoming mobile app launch. The new, high-traffic cluster was initially prone to crashing under load and required deep performance tuning.",
+                    implementation: "I led a team of three junior developers to upgrade to a modern version of Openfire that supported clustering for high availability and scalability. I collaborated with the design team to improve the UI and visibility of the chat feature across the website. My team successfully launched the chat feature on the Android and iOS apps for the first time. When the new cluster became unstable under the new load, I performed deep performance tuning of the JVM, specifically optimizing the Garbage Collector and heap memory settings to achieve stability.",
+                    impact: "The project drove a **600% increase** in the usage of the chat feature. We delivered a highly reliable and scalable real-time chat platform capable of supporting both web and mobile clients, which significantly improved user engagement and interaction on the platform.",
+                    techStack: ["Openfire", "Java", "JVM Tuning", "MySQL"]
+                },
+                "infoedge-redis": {
+                    title: "Caching Modernization with Redis",
+                    overview: "Spearheaded the migration from Memcache to Redis, leveraging advanced data structures to reduce database load by over 30%.",
+                    businessNeed: "The existing caching layer was a severely under-provisioned (1GB) Memcache instance. It could only store simple key-value pairs and wasn't large enough to be effective. This forced the application to make expensive database calls and perform repetitive calculations on every page load, slowing down the user experience.",
+                    challenges: "The project required migrating the caching layer of a high-traffic application without downtime and rethinking the caching strategy to go beyond simple key-value pairs to leverage more powerful data structures.",
+                    implementation: "I led a team of two junior developers to replace Memcache with a new, properly-sized Redis cluster. I designed and developed a new caching library for the team to use. Instead of just caching raw data, my team used Redis Hashes to store structured user profile data and to cache pre-calculated counts (accepts, declines, etc.). This meant the application could fetch all the data it needed for a component in a single, fast call to Redis.",
+                    impact: "This initiative reduced read load on the primary database by **over 30%**, significantly improving application performance and response times. It also enabled more sophisticated caching patterns across the application, making the entire system more scalable.",
+                    techStack: ["Redis", "PHP", "Memcache"]
+                },
+                "infoedge-rabbitmq": {
+                    title: "Asynchronous Task Processing with RabbitMQ",
+                    overview: "Architected and introduced a RabbitMQ-based messaging system, reducing critical API response times from >60s to under 200ms.",
+                    businessNeed: "Critical user-facing APIs, such as accepting or declining a contact request, were performing slow, synchronous tasks like sending emails, SMS, and push notifications. This caused the API response times to exceed 60 seconds, leading to a terrible user experience and a high risk of request timeouts.",
+                    challenges: "The main challenge was introducing a message broker (RabbitMQ) as a brand new component into the company's tech stack and architecting a highly available master-slave cluster to ensure it was a reliable, core piece of infrastructure.",
+                    implementation: "I led a team of two junior developers to research, architect, and deploy a new, highly available RabbitMQ cluster. I developed a custom wrapper library that provided a simple interface for developers to publish messages to the queue. My team identified all the slow, synchronous operations in our critical API paths and refactored them to instead publish a message to RabbitMQ. We then built dedicated consumer services to process these messages asynchronously.",
+                    impact: "This project drastically improved the user experience by reducing the API response time for key actions from over 60 seconds to **under 200 milliseconds**. It also increased the overall reliability and resilience of the application by decoupling it from external service providers.",
+                    techStack: ["RabbitMQ", "PHP", "Java"]
+                },
+                "infoedge-contact-engine": {
+                    title: "Contact Engine API Redesign",
+                    overview: "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application.",
+                    businessNeed: "The \"Contact Engine\"—the core system for all user interactions on Jeevansathi.com—was part of a monolith that rendered HTML directly. This architecture could not support the company's strategic goal of launching a mobile app, which required a modern, JSON-based API.",
+                    challenges: "The main challenge was rewriting a business-critical system from scratch without disrupting the existing, high-traffic website. The system also had to handle complex business rules based on user subscription levels.",
+                    implementation: "I led the initiative to re-architect the Contact Engine in the Symfony (PHP) MVC framework. I designed a new database-driven decision engine to manage the complex subscription logic and used the Factory design pattern to handle the different types of user interactions in a clean, maintainable way. I collaborated closely with the mobile and frontend teams to define and deliver a versioned, RESTful API that served as the single source of truth for all client applications.",
+                    impact: "This project was a critical success, as it directly unblocked the launch of the company's first mobile application. We created a modern, scalable, and maintainable API-driven backend for a core business function and established a versioned API architecture that became a blueprint for future projects.",
+                    techStack: ["PHP", "Symfony", "API Design", "MySQL", "Factory Pattern"]
+                },
+                "avyukta-startup": {
+                    title: "E-Commerce Deals Aggregator",
+                    overview: "Designed, scaled, and operated two e-commerce deals aggregator websites, growing the user base from 0 to 10,000 monthly active users within the first year.",
+                    businessNeed: "As a founder, the goal was to rapidly build and launch an e-commerce platform to aggregate deals from various online retailers. The challenge was to get to market quickly with a scalable and maintainable solution while managing all aspects of the technology and infrastructure on a startup budget.",
+                    challenges: "The main challenges were choosing a technology stack that would allow for rapid development and scaling the infrastructure from a simple shared hosting environment to a more robust cloud-based solution as traffic grew.",
+                    implementation: "I chose WordPress as the foundational CMS to leverage its rich plugin ecosystem for rapid feature development. I designed and developed a custom WordPress theme and several custom widgets to create a unique user experience. Initially launched on cost-effective shared hosting, I later led the migration of the entire platform to AWS (EC2, RDS) to handle the growing user traffic. I leveraged WordPress caching plugins to ensure the site remained performant as we scaled.",
+                    impact: "I successfully launched two e-commerce websites from scratch and grew the user base from 0 to **10,000 monthly active users** within the first year. This experience was invaluable in learning the entire lifecycle of a product, from ideation and development to scaling and operations.",
+                    techStack: ["WordPress", "PHP", "MySQL", "jQuery", "AWS EC2", "AWS RDS"]
+                }
+            },
+            skills: {
+                "Leadership": ["Team Building", "Mentoring", "Project Leadership", "Process Improvement", "Strategic Planning"],
+                "Cloud & AWS": ["EC2", "S3", "RDS", "Aurora", "SQS", "SNS", "Elasticache", "CloudFront", "Route53", "CloudFormation", "Lambda", "API Gateway", "Step Functions", "SSM"],
+                "Backend": ["Java (Spring Boot)", "PHP (Laravel, Symfony)", "Python", "Ruby", "Node.js", "Microservices"],
+                "DevOps & Tools": ["Kubernetes", "Docker", "Jenkins", "Git", "New Relic", "Prometheus", "RabbitMQ", "HAProxy", "Solr"],
+                "Databases & Caching": ["Redis", "MySQL", "MongoDB", "Memcache"],
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const timelineContainer = document.getElementById('timeline-container');
+            const projectsGrid = document.getElementById('projects-grid');
+            const filtersContainer = document.getElementById('filters-container');
+            const skillsContainer = document.getElementById('skills-container');
+            let activeFilter = 'All';
+
+            function renderTimeline() {
+                portfolioData.experiences.forEach(exp => {
+                    const pointsHtml = exp.points && exp.points.length > 0 ? `
+                        <ul class="mt-4 list-disc list-inside text-gray-600 space-y-2">
+                            ${exp.points.map(point => `<li>${point}</li>`).join('')}
+                        </ul>
+                    ` : '';
+
+                    const projectsHtml = exp.projects.length > 0 ? `
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700">Key Projects:</h4>
+                            <div class="mt-2 space-y-2">
+                                ${exp.projects.map(pId => {
+                                    const project = portfolioData.projects[pId];
+                                    return `<div class="text-sm text-gray-500 cursor-pointer hover:text-teal-600" onclick="openModal('${pId}')">- ${project.title}</div>`;
+                                }).join('')}
+                            </div>
+                        </div>` : '';
+
+                    const timelineItem = document.createElement('div');
+                    timelineItem.className = 'mb-12 relative';
+                    timelineItem.innerHTML = `
+                        <div class="absolute w-4 h-4 bg-teal-500 rounded-full -left-[9px] mt-1.5 border-4 border-white"></div>
+                        <div class="ml-8">
+                            <p class="text-sm text-gray-500">${exp.period}</p>
+                            <h3 class="text-lg font-bold text-gray-900">${exp.role}</h3>
+                            <p class="text-md text-gray-700">${exp.company}</p>
+                            ${pointsHtml}
+                            ${projectsHtml}
+                        </div>
+                    `;
+                    timelineContainer.appendChild(timelineItem);
+                });
+            }
+
+            function renderProjects(filter = 'All') {
+                projectsGrid.innerHTML = '';
+                const projectEntries = Object.entries(portfolioData.projects);
+                const filteredProjects = filter === 'All' ? projectEntries : projectEntries.filter(([pId]) => {
+                    return portfolioData.experiences.some(exp => exp.company === filter && exp.projects.includes(pId));
+                });
+
+                filteredProjects.forEach(([pId, project]) => {
+                    const company = portfolioData.experiences.find(exp => exp.projects.includes(pId))?.company || '';
+                    const card = document.createElement('div');
+                    card.className = 'bg-white border border-gray-200 rounded-lg p-6 flex flex-col justify-between hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer';
+                    card.innerHTML = `
+                        <div>
+                            <p class="text-sm text-teal-600 font-semibold">${company}</p>
+                            <h4 class="text-lg font-bold text-gray-900 mt-2">${project.title}</h4>
+                            <p class="text-gray-600 mt-2 text-sm">${project.overview}</p>
+                        </div>
+                        <button class="mt-6 text-teal-600 font-semibold flex items-center group">
+                            View Details
+                            <span class="ml-1 group-hover:translate-x-1 transition-transform">&#8594;</span>
+                        </button>
+                    `;
+                    card.addEventListener('click', () => openModal(pId));
+                    projectsGrid.appendChild(card);
+                });
+            }
+
+            function renderFilters() {
+                const companies = ['All', ...new Set(portfolioData.experiences.map(e => e.company))];
+                filtersContainer.innerHTML = companies.map(company => `
+                    <button class="filter-btn px-4 py-2 text-sm font-medium rounded-full transition-colors ${company === activeFilter ? 'bg-teal-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'}" data-filter="${company}">
+                        ${company}
+                    </button>
+                `).join('');
+
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        activeFilter = btn.dataset.filter;
+                        renderProjects(activeFilter);
+                        document.querySelectorAll('.filter-btn').forEach(b => {
+                            b.classList.toggle('bg-teal-600', b === btn);
+                            b.classList.toggle('text-white', b === btn);
+                            b.classList.toggle('bg-gray-200', b !== btn);
+                            b.classList.toggle('text-gray-700', b !== btn);
+                        });
+                    });
+                });
+            }
+            
+            function renderSkills() {
+                skillsContainer.innerHTML = Object.entries(portfolioData.skills).map(([category, skillsList]) => `
+                    <div>
+                        <h4 class="text-md font-semibold text-gray-800 mb-3">${category.replace(/_/g, ' & ')}</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${skillsList.map(skill => `<span class="bg-teal-50 text-teal-700 text-xs font-medium px-3 py-1 rounded-full">${skill}</span>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderTimeline();
+            renderFilters();
+            renderProjects();
+            renderSkills();
+        });
+
+        function openModal(projectId) {
+            const project = portfolioData.projects[projectId];
+            if (!project) return;
+            
+            const modal = document.getElementById('project-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalContent = document.getElementById('modal-content');
+
+            modalTitle.textContent = project.title;
+            modalContent.innerHTML = `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Project Overview & Business Need</h4>
+                        <p class="text-gray-600 leading-relaxed">${project.businessNeed}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Technical Challenges</h4>
+                        <p class="text-gray-600 leading-relaxed">${project.challenges}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Architecture & Implementation</h4>
+                        <p class="text-gray-600 leading-relaxed">${project.implementation}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-2">Outcomes & Impact</h4>
+                        <p class="text-gray-600 leading-relaxed">${project.impact}</p>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-gray-800 mb-3">Technologies Used</h4>
+                        <div class="flex flex-wrap gap-2">
+                            ${project.techStack.map(tech => `<span class="bg-gray-100 text-gray-800 text-sm font-medium px-3 py-1 rounded-full">${tech}</span>`).join('')}
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>
