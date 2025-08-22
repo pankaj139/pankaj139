@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/pankaj139/static/css/main.9317d21f.css",
-    "main.js": "/pankaj139/static/js/main.03fedc10.js",
+    "main.css": "/pankaj139/static/css/main.77bcab69.css",
+    "main.js": "/pankaj139/static/js/main.54636be8.js",
     "static/js/453.56748988.chunk.js": "/pankaj139/static/js/453.56748988.chunk.js",
     "index.html": "/pankaj139/index.html",
-    "main.9317d21f.css.map": "/pankaj139/static/css/main.9317d21f.css.map",
-    "main.03fedc10.js.map": "/pankaj139/static/js/main.03fedc10.js.map",
+    "main.77bcab69.css.map": "/pankaj139/static/css/main.77bcab69.css.map",
+    "main.54636be8.js.map": "/pankaj139/static/js/main.54636be8.js.map",
     "453.56748988.chunk.js.map": "/pankaj139/static/js/453.56748988.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.9317d21f.css",
-    "static/js/main.03fedc10.js"
+    "static/css/main.77bcab69.css",
+    "static/js/main.54636be8.js"
   ]
 }
