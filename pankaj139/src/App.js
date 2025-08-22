@@ -601,10 +601,13 @@ const XIcon = ({ className }) => (
 // --- Components ---
 
 const Header = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+      setIsMobileMenuOpen(false); // Close mobile menu after navigation
     }
   };
 
@@ -612,13 +615,61 @@ const Header = () => {
     <header className="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-white">{portfolioData.name}</h1>
+        
+        {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 text-gray-300">
           <button onClick={() => scrollToSection('about')} className="hover:text-cyan-400 transition-colors">About</button>
           <button onClick={() => scrollToSection('experience')} className="hover:text-cyan-400 transition-colors">Experience</button>
           <button onClick={() => scrollToSection('projects')} className="hover:text-cyan-400 transition-colors">Projects</button>
           <button onClick={() => scrollToSection('skills')} className="hover:text-cyan-400 transition-colors">Skills</button>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          className="md:hidden text-gray-300 hover:text-cyan-400 transition-colors"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </nav>
+
+      {/* Mobile Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-700">
+          <div className="container mx-auto px-6 py-4 space-y-3">
+            <button 
+              onClick={() => scrollToSection('about')} 
+              className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
+            >
+              About
+            </button>
+            <button 
+              onClick={() => scrollToSection('experience')} 
+              className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
+            >
+              Experience
+            </button>
+            <button 
+              onClick={() => scrollToSection('projects')} 
+              className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
+            >
+              Projects
+            </button>
+            <button 
+              onClick={() => scrollToSection('skills')} 
+              className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
+            >
+              Skills
+            </button>
+          </div>
+        </div>
+      )}
     </header>
   );
 };
@@ -632,18 +683,18 @@ const Hero = () => (
       <p className="mt-4 text-lg md:text-xl text-gray-400 max-w-3xl mx-auto">
         {portfolioData.heroSubtitle}
       </p>
-      <div className="mt-8 flex justify-center items-center space-x-6 text-gray-400">
-        <a href={`mailto:${portfolioData.contact.email}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
-          <MailIcon className="w-5 h-5" />
-          <span>{portfolioData.contact.email}</span>
+      <div className="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-400">
+        <a href={`mailto:${portfolioData.contact.email}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <MailIcon className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm sm:text-base">{portfolioData.contact.email}</span>
         </a>
-        <a href={`tel:${portfolioData.contact.phone}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
-          <PhoneIcon className="w-5 h-5" />
-          <span>{portfolioData.contact.phone}</span>
+        <a href={`tel:${portfolioData.contact.phone}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <PhoneIcon className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm sm:text-base">{portfolioData.contact.phone}</span>
         </a>
-        <a href={`https://${portfolioData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
-          <LinkedinIcon className="w-5 h-5" />
-          <span>LinkedIn</span>
+        <a href={`https://${portfolioData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <LinkedinIcon className="w-5 h-5 flex-shrink-0" />
+          <span className="text-sm sm:text-base">LinkedIn</span>
         </a>
       </div>
     </div>
@@ -654,7 +705,7 @@ const About = () => (
   <section id="about" className="py-20 bg-gray-800">
     <div className="container mx-auto px-6">
       <h3 className="text-3xl font-bold text-white mb-8">About Me</h3>
-      <p className="text-gray-300 text-lg leading-relaxed max-w-4xl">
+      <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-4xl">
         {portfolioData.summary}
       </p>
     </div>
@@ -669,12 +720,12 @@ const Experience = () => (
         {portfolioData.experiences.map((exp, index) => (
           <div key={index} className="mb-12 md:flex items-start">
             <div className="absolute w-4 h-4 bg-cyan-500 rounded-full -left-2 mt-1.5"></div>
-            <div className="pl-8 flex-1">
+            <div className="pl-6 md:pl-8 flex-1">
               <p className="text-sm text-gray-400">{exp.period}</p>
-              <h4 className="text-xl font-bold text-white mt-1">{exp.role}</h4>
-              <p className="text-md text-gray-300">{exp.company} - {exp.location}</p>
-              <ul className="mt-4 list-disc list-inside text-gray-400 space-y-2">
-                {exp.points.map((point, i) => <li key={i}>{point}</li>)}
+              <h4 className="text-lg md:text-xl font-bold text-white mt-1">{exp.role}</h4>
+              <p className="text-sm md:text-md text-gray-300">{exp.company} - {exp.location}</p>
+              <ul className="mt-4 list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+                {exp.points.map((point, i) => <li key={i} className="leading-relaxed">{point}</li>)}
               </ul>
             </div>
           </div>
@@ -689,20 +740,20 @@ const Projects = ({ onProjectSelect }) => (
   <section id="projects" className="py-20 bg-gray-800">
     <div className="container mx-auto px-6">
       <h3 className="text-3xl font-bold text-white mb-12">Key Projects & Achievements</h3>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {portfolioData.projects.map((project) => (
-          <div key={project.id} className="bg-gray-900 rounded-lg p-6 flex flex-col justify-between hover:shadow-cyan-500/20 hover:shadow-lg transition-shadow duration-300">
+          <div key={project.id} className="bg-gray-900 rounded-lg p-4 md:p-6 flex flex-col justify-between hover:shadow-cyan-500/20 hover:shadow-lg transition-shadow duration-300">
             <div>
               <p className="text-sm text-cyan-400 font-semibold">{project.company}</p>
-              <h4 className="text-xl font-bold text-white mt-2">{project.title}</h4>
-              <p className="text-gray-400 mt-2 text-sm">{project.resumePoint}</p>
+              <h4 className="text-lg md:text-xl font-bold text-white mt-2">{project.title}</h4>
+              <p className="text-gray-400 mt-2 text-sm leading-relaxed">{project.resumePoint}</p>
             </div>
             <button 
               onClick={() => onProjectSelect(project)}
-              className="mt-6 text-cyan-400 font-semibold flex items-center group"
+              className="mt-4 md:mt-6 text-cyan-400 font-semibold flex items-center group text-sm md:text-base"
             >
               View Details
-              <ChevronRightIcon className="w-5 h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+              <ChevronRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-1 group-hover:translate-x-1 transition-transform" />
             </button>
           </div>
         ))}
@@ -720,9 +771,9 @@ const Skills = () => (
         {Object.entries(portfolioData.skills).map(([category, skillsList]) => (
           <div key={category}>
             <h4 className="text-xl font-semibold text-cyan-400 mb-4">{category.replace(/_/g, ' & ')}</h4>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-2 md:gap-3">
               {skillsList.map((skill) => (
-                <span key={skill} className="bg-gray-700 text-gray-200 text-sm font-medium px-4 py-2 rounded-full">
+                <span key={skill} className="bg-gray-700 text-gray-200 text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">
                   {skill}
                 </span>
               ))}
@@ -738,16 +789,16 @@ const Education = () => (
     <section id="education" className="py-20 bg-gray-800">
         <div className="container mx-auto px-6">
             <h3 className="text-3xl font-bold text-white mb-12">Education & Certifications</h3>
-            <div className="grid md:grid-cols-2 gap-10">
-                <div className="bg-gray-900 p-6 rounded-lg">
-                    <h4 className="text-xl font-bold text-white">{portfolioData.education.degree}</h4>
-                    <p className="text-cyan-400 mt-1">{portfolioData.education.institution}</p>
-                    <p className="text-gray-400 text-sm mt-2">{portfolioData.education.period} | {portfolioData.education.location}</p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
+                    <h4 className="text-lg md:text-xl font-bold text-white">{portfolioData.education.degree}</h4>
+                    <p className="text-cyan-400 mt-1 text-sm md:text-base">{portfolioData.education.institution}</p>
+                    <p className="text-gray-400 text-xs md:text-sm mt-2">{portfolioData.education.period} | {portfolioData.education.location}</p>
                 </div>
-                <div className="bg-gray-900 p-6 rounded-lg">
-                     <h4 className="text-xl font-bold text-white">Certifications & Public Speaking</h4>
-                     <ul className="mt-2 list-disc list-inside text-gray-400 space-y-2">
-                        {portfolioData.certifications.map((cert, i) => <li key={i}>{cert}</li>)}
+                <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
+                     <h4 className="text-lg md:text-xl font-bold text-white">Certifications & Public Speaking</h4>
+                     <ul className="mt-2 list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+                        {portfolioData.certifications.map((cert, i) => <li key={i} className="leading-relaxed">{cert}</li>)}
                      </ul>
                 </div>
             </div>
@@ -760,49 +811,49 @@ const ProjectModal = ({ project, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2 md:p-4"
       onClick={onClose}
     >
       <div 
-        className="bg-gray-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto"
+        className="bg-gray-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="p-6 md:p-8 sticky top-0 bg-gray-800/80 backdrop-blur-sm flex justify-between items-center border-b border-gray-700">
-            <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-            <button onClick={onClose} className="text-gray-400 hover:text-white">
-                <XIcon className="w-6 h-6" />
+        <div className="p-4 md:p-6 lg:p-8 sticky top-0 bg-gray-800/80 backdrop-blur-sm flex justify-between items-center border-b border-gray-700">
+            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white pr-4">{project.title}</h3>
+            <button onClick={onClose} className="text-gray-400 hover:text-white flex-shrink-0">
+                <XIcon className="w-5 h-5 md:w-6 md:h-6" />
             </button>
         </div>
         
-        <div className="p-6 md:p-8 space-y-8">
+        <div className="p-4 md:p-6 lg:p-8 space-y-6 md:space-y-8">
             <div>
-                <h4 className="text-lg font-semibold text-cyan-400 mb-2">The Problem</h4>
-                <p className="text-gray-300 leading-relaxed">{project.problem}</p>
+                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Problem</h4>
+                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{project.problem}</p>
             </div>
              <div>
-                <h4 className="text-lg font-semibold text-cyan-400 mb-2">Key Challenges</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed">
+                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">Key Challenges</h4>
+                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
                     {project.challenges.map((challenge, i) => <li key={i}>{challenge}</li>)}
                 </ul>
             </div>
              <div>
-                <h4 className="text-lg font-semibold text-cyan-400 mb-2">My Actions & Contributions</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed">
+                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">My Actions & Contributions</h4>
+                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
                     {project.actions.map((action, i) => <li key={i}>{action}</li>)}
                 </ul>
             </div>
              <div>
-                <h4 className="text-lg font-semibold text-cyan-400 mb-2">The Results</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed">
+                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Results</h4>
+                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
                     {project.results.map((result, i) => <li key={i}>{result}</li>)}
                 </ul>
             </div>
             {project.techStack && (
                  <div>
-                    <h4 className="text-lg font-semibold text-cyan-400 mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-3">
+                    <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-3">Technologies Used</h4>
+                    <div className="flex flex-wrap gap-2 md:gap-3">
                         {project.techStack.map((tech) => (
-                            <span key={tech} className="bg-gray-700 text-gray-200 text-sm font-medium px-4 py-2 rounded-full">
+                            <span key={tech} className="bg-gray-700 text-gray-200 text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">
                                 {tech}
                             </span>
                         ))}
