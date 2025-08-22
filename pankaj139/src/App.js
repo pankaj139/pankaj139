@@ -27,16 +27,16 @@ import { updateSEO } from './utils/seo';
 // It's a best practice to keep your data separate from your components.
 const portfolioData = {
   name: "Pankaj Khandelwal",
-  title: "Engineering Manager",
-  heroTitle: "Building & Leading High-Performing Engineering Teams",
-  heroSubtitle: "A technical leader focused on mentorship, process improvement, and delivering business impact.",
+  title: "Tech Lead & Engineering Manager",
+  heroTitle: "Tech Lead & Engineering Manager with Proven Leadership",
+  heroSubtitle: "A seasoned technical leader with Engineering Manager experience, focused on mentorship, process improvement, and delivering business impact.",
   location: "Hyderabad",
   contact: {
     phone: "981-030-0513",
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "I am a seasoned engineering leader with over a decade of experience building and mentoring high-performing teams. My expertise lies in architecting scalable cloud solutions and establishing engineering best practices that drive efficiency, reliability, and business impact. I have a proven track record of leading complex technical migrations, optimizing systems, and fostering a culture of ownership and continuous improvement.",
+  summary: "I am a seasoned engineering leader with over a decade of experience building and mentoring high-performing teams, including Engineering Manager experience. My expertise lies in architecting scalable cloud solutions, establishing engineering best practices, and leading cross-functional teams that drive efficiency, reliability, and business impact. I have a proven track record of leading complex technical migrations, optimizing systems, and fostering a culture of ownership and continuous improvement. I am passionate about growing into senior Engineering Management roles where I can scale my impact across multiple teams and drive organizational engineering excellence.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
@@ -704,10 +704,34 @@ const Hero = () => (
 const About = () => (
   <section id="about" className="py-20 bg-gray-800">
     <div className="container mx-auto px-6">
-      <h3 className="text-3xl font-bold text-white mb-8">About Me</h3>
-      <p className="text-gray-300 text-base md:text-lg leading-relaxed max-w-4xl">
-        {portfolioData.summary}
-      </p>
+      <h3 className="text-3xl font-bold text-white mb-12">About Me</h3>
+      <div className="bg-gray-900 rounded-lg p-6 md:p-8 shadow-lg">
+        <div className="flex flex-col md:flex-row items-start gap-6 md:gap-8">
+          <div className="flex-shrink-0">
+            <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center">
+              <svg className="w-8 h-8 md:w-10 md:h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+              </svg>
+            </div>
+          </div>
+          <div className="flex-1">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
+              {portfolioData.summary}
+            </p>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <span className="bg-cyan-500/10 text-cyan-400 text-sm font-medium px-3 py-1 rounded-full border border-cyan-500/20">
+                15 Years Experience
+              </span>
+              <span className="bg-cyan-500/10 text-cyan-400 text-sm font-medium px-3 py-1 rounded-full border border-cyan-500/20">
+                Engineering Manager
+              </span>
+              <span className="bg-cyan-500/10 text-cyan-400 text-sm font-medium px-3 py-1 rounded-full border border-cyan-500/20">
+                Technical Leader
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 );
@@ -736,31 +760,94 @@ const Experience = () => (
 );
 
 
-const Projects = ({ onProjectSelect }) => (
-  <section id="projects" className="py-20 bg-gray-800">
-    <div className="container mx-auto px-6">
-      <h3 className="text-3xl font-bold text-white mb-12">Key Projects & Achievements</h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-        {portfolioData.projects.map((project) => (
-          <div key={project.id} className="bg-gray-900 rounded-lg p-4 md:p-6 flex flex-col justify-between hover:shadow-cyan-500/20 hover:shadow-lg transition-shadow duration-300">
-            <div>
-              <p className="text-sm text-cyan-400 font-semibold">{project.company}</p>
-              <h4 className="text-lg md:text-xl font-bold text-white mt-2">{project.title}</h4>
-              <p className="text-gray-400 mt-2 text-sm leading-relaxed">{project.resumePoint}</p>
-            </div>
-            <button 
-              onClick={() => onProjectSelect(project)}
-              className="mt-4 md:mt-6 text-cyan-400 font-semibold flex items-center group text-sm md:text-base"
-            >
-              View Details
-              <ChevronRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-1 group-hover:translate-x-1 transition-transform" />
-            </button>
+const Projects = ({ onProjectSelect }) => {
+  const [selectedCompany, setSelectedCompany] = useState('All');
+  
+  // Get unique companies from projects and sort by work timeline
+  const getCompanyOrder = (companyName) => {
+    const companyTimeline = {
+      'Sapient Consulting India Pvt Ltd': 1,
+      'Infoedge India Ltd': 2,
+      'Avyukta Infotech (Startup)': 3,
+      'Deloitte Consulting India Pvt Ltd.': 4,
+      'Acquia India Pvt Ltd.': 5,
+      'Darwin Box Digital Solution Pvt Ltd': 6,
+      'Highspot India Pvt Ltd': 7
+    };
+    
+    // Handle variations in company names
+    for (const [key, value] of Object.entries(companyTimeline)) {
+      if (companyName.includes(key.split(' ')[0]) || key.includes(companyName.split(' ')[0])) {
+        return value;
+      }
+    }
+    return 999; // Default for any unmatched companies
+  };
+  
+  const companies = ['All', ...Array.from(new Set(portfolioData.projects.map(project => project.company)))
+    .sort((a, b) => getCompanyOrder(a) - getCompanyOrder(b))];
+  
+  // Filter projects based on selected company and sort chronologically (latest first)
+  const filteredProjects = selectedCompany === 'All' 
+    ? [...portfolioData.projects].sort((a, b) => getCompanyOrder(b.company) - getCompanyOrder(a.company))
+    : portfolioData.projects.filter(project => project.company === selectedCompany);
+
+  return (
+    <section id="projects" className="py-20 bg-gray-800">
+      <div className="container mx-auto px-6">
+        <h3 className="text-3xl font-bold text-white mb-8">Key Projects & Achievements</h3>
+        
+        {/* Company Filter */}
+        <div className="mb-8">
+          <p className="text-gray-400 mb-4 text-sm md:text-base">Filter by Company:</p>
+          <div className="flex flex-wrap gap-2 md:gap-3">
+            {companies.map((company) => (
+              <button
+                key={company}
+                onClick={() => setSelectedCompany(company)}
+                className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 ${
+                  selectedCompany === company
+                    ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/25'
+                    : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
+                }`}
+              >
+                {company} {company !== 'All' && `(${portfolioData.projects.filter(p => p.company === company).length})`}
+              </button>
+            ))}
           </div>
-        ))}
+        </div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {filteredProjects.map((project) => (
+            <div key={project.id} className="bg-gray-900 rounded-lg p-4 md:p-6 flex flex-col justify-between hover:shadow-cyan-500/20 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+              <div>
+                <p className="text-sm text-cyan-400 font-semibold">{project.company}</p>
+                <h4 className="text-lg md:text-xl font-bold text-white mt-2">{project.title}</h4>
+                <p className="text-gray-400 mt-2 text-sm leading-relaxed">{project.resumePoint}</p>
+              </div>
+              <button 
+                onClick={() => onProjectSelect(project)}
+                className="mt-4 md:mt-6 text-cyan-400 font-semibold flex items-center group text-sm md:text-base"
+              >
+                View Details
+                <ChevronRightIcon className="w-4 h-4 md:w-5 md:h-5 ml-1 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </div>
+          ))}
+        </div>
+
+        {/* Results Count */}
+        <div className="mt-8 text-center">
+          <p className="text-gray-400 text-sm">
+            Showing {filteredProjects.length} of {portfolioData.projects.length} projects
+            {selectedCompany !== 'All' && ` from ${selectedCompany}`}
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
+};
 
 
 const Skills = () => (
