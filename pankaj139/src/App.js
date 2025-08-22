@@ -799,7 +799,6 @@ const Projects = ({ onProjectSelect }) => {
         
         {/* Company Filter */}
         <div className="mb-8">
-          <p className="text-gray-400 mb-4 text-sm md:text-base">Filter by Company:</p>
           <div className="flex flex-wrap gap-2 md:gap-3">
             {companies.map((company) => (
               <button
