@@ -8,7 +8,7 @@
  * Expected: Provides utility classes and custom configuration for the project
  * 
  * Author: Pankaj Khandelwal
- * Created: 2024
+ * Created: 2025
  */
 
 /** @type {import('tailwindcss').Config} */

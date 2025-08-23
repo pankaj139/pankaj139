@@ -8,7 +8,7 @@
  * Expected: Enables Tailwind CSS processing and autoprefixer functionality
  * 
  * Author: Pankaj Khandelwal
- * Created: 2024
+ * Created: 2025
  * Updated: 2024 - Updated to use standard tailwindcss plugin for v3
  */
 

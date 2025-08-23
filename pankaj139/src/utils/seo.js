@@ -8,7 +8,7 @@
  * Expected: Provides easy-to-use functions for SEO management
  * 
  * Author: Pankaj Khandelwal
- * Created: 2024
+ * Created: 2025
  */
 
 /**
