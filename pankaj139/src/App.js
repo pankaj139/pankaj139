@@ -16,8 +16,8 @@
  * - Dynamic SEO updates
  * 
  * Author: Pankaj Khandelwal
- * Created: 2024
- * Updated: 2024 - Added comprehensive documentation and dynamic SEO
+ * Created: 2025
+ * Updated: 2025 - Added comprehensive documentation and dynamic SEO
  */
 
 import React, { useState, useEffect } from 'react';
@@ -36,7 +36,7 @@ const portfolioData = {
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "I am a seasoned engineering leader with over a decade of experience building and mentoring high-performing teams, including Engineering Manager experience. My expertise lies in architecting scalable cloud solutions, establishing engineering best practices, and leading cross-functional teams that drive efficiency, reliability, and business impact. I have a proven track record of leading complex technical migrations, optimizing systems, and fostering a culture of ownership and continuous improvement. I am passionate about growing into senior Engineering Management roles where I can scale my impact across multiple teams and drive organizational engineering excellence.",
+  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. My approach is rooted in Agile methodologies and data-driven decision-making to solve critical business problems. I excel at the intersection of technical architecture and product management, translating product vision into reliable and scalable software. I am passionate about mentoring engineers and fostering a culture of collaborative problem-solving and continuous improvement.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
@@ -57,7 +57,8 @@ const portfolioData = {
       period: "Mar 2023 - Oct 2023",
       location: "Hyderabad, India",
       points: [
-        "Managed a cross-functional team of 6 engineers, implementing agile processes that increased team productivity by 20% and reduced production issues by 50%.",
+        "Implemented and streamlined Agile processes, including sprint planning and bug triage, which improved team productivity by 20% and reduced production issues by 50%.",
+        "Collaborated closely with product management to stabilize priorities and create a predictable roadmap, applying strong decision-making to balance feature development with technical debt reduction.",
         "Led the successful integration of Singapore's Singpass identity service, dramatically simplifying the onboarding experience for candidates.",
         "Oversaw the development and delivery of a new performance management module.",
         "Mentored and coached the team, fostering a high-performing work environment where two engineers were promoted within the year.",
@@ -70,19 +71,19 @@ const portfolioData = {
       location: "Pune, India",
       points: [
         "As Technical Lead, I directed the architectural vision for Acquia Search, a high-traffic service, achieving 99.96% uptime.",
-        "Led a cost-optimization initiative that reduced infrastructure COGS by over 50% annually.",
+        "Led a cost-optimization initiative, using data-driven decision-making to re-architect our Solr cluster deployment, which reduced infrastructure COGS by over 50% annually.",
         "Re-architected a critical monitoring system to scale for 20,000+ collections, ensuring 100% monitoring coverage.",
         "Groomed and mentored a distributed team of 10 engineers, fostering technical growth and project ownership.",
       ],
     },
-     {
+    {
       company: "Deloitte Consulting India Pvt Ltd.",
       role: "Senior Consultant",
       period: "Jun 2018 - Jul 2020",
       location: "Gurgaon, India",
       points: [
         "Led the architecture for the Bersin Member site modernization, increasing user engagement by 25%.",
-        "Drastically improved a critical API's performance, reducing response time from over 60 seconds to under 1 second.",
+        "Applied deep diagnostic and problem-solving skills to identify and fix a critical performance bottleneck in a legacy API, reducing its response time from over 60 seconds to under 1 second.",
         "Designed a scalable architecture to migrate a legacy web application to AWS, reducing operational costs by 40%.",
       ],
     },
@@ -92,133 +93,133 @@ const portfolioData = {
       period: "Aug 2015 - May 2018",
       location: "Noida, India",
       points: [
-          "Led the design of a new authentication microservice, achieving <5ms latency and enabling a company-wide microservices migration.",
-          "Architected and introduced a RabbitMQ-based messaging system, reducing critical API response times from >60s to under 200ms.",
-          "Spearheaded the migration from Memcache to Redis, leveraging advanced data structures to reduce database load by over 30%.",
-          "Led the technical overhaul of the real-time chat infrastructure, resulting in a 600% increase in user engagement.",
+        "Led the design of a new authentication microservice, achieving <5ms latency and enabling a company-wide microservices migration.",
+        "Architected and introduced a RabbitMQ-based messaging system, reducing critical API response times from >60s to under 200ms.",
+        "Spearheaded the migration from Memcache to Redis, leveraging advanced data structures to reduce database load by over 30%.",
+        "Led the technical overhaul of the real-time chat infrastructure, resulting in a 600% increase in user engagement.",
       ]
     },
     {
-        company: "Avyukta Infotech",
-        role: "Founder / Lead Architect",
-        period: "Oct 2014 - Aug 2015",
-        location: "Noida, India",
-        points: [
-            "Founded and led all technical aspects of two e-commerce deals aggregator websites, growing the user base from 0 to 10,000 monthly active users within the first year.",
-        ]
+      company: "Avyukta Infotech",
+      role: "Founder / Lead Architect",
+      period: "Oct 2014 - Aug 2015",
+      location: "Noida, India",
+      points: [
+        "Founded and led all technical aspects of two e-commerce deals aggregator websites, growing the user base from 0 to 10,000 monthly active users within the first year.",
+      ]
     },
     {
-        company: "Infoedge India Ltd",
-        role: "Sr. Software Engineer",
-        period: "May 2012 - Oct 2014",
-        location: "Noida, India",
-        points: [
-            "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application.",
-        ]
+      company: "Infoedge India Ltd",
+      role: "Sr. Software Engineer",
+      period: "May 2012 - Oct 2014",
+      location: "Noida, India",
+      points: [
+        "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application.",
+      ]
     },
     {
-        company: "Sapient Consulting India Pvt Ltd",
-        role: "Associate TRM",
-        period: "Jul 2010 - May 2012",
-        location: "Gurgaon, India",
-        points: [
-            "Contributed to the development and enhancement of the OpenLink Endur platform for a leading European energy trading company.",
-        ]
+      company: "Sapient Consulting India Pvt Ltd",
+      role: "Associate TRM",
+      period: "Jul 2010 - May 2012",
+      location: "Gurgaon, India",
+      points: [
+        "Contributed to the development and enhancement of the OpenLink Endur platform for a leading European energy trading company.",
+      ]
     }
   ],
   projects: [
     {
-        id: "highspot-metadata",
-        title: "Observability Data Enrichment",
-        company: "Highspot",
-        resumePoint: "Architected a platform-wide metadata enrichment system, enabling team-specific observability dashboards and accurate cost attribution.",
-        problem: "As an organization, we had no visibility into which teams or features were generating our massive volume of observability data. This made it impossible for teams to create their own dashboards or for us to accurately budget and attribute observability costs.",
-        challenges: [
-            "Designing a system that could automatically capture context for various entry points, including web requests, background jobs, and other tasks.",
-            "Implementing this with minimal changes required from the dozens of development teams across the organization.",
-            "Navigating a large, complex codebase to identify all the correct entry points for injecting the metadata.",
-        ],
-        actions: [
-            "I designed a centralized, configuration-based system where a single YAML file maps every action (e.g., API endpoint, job name) to its owning team and feature.",
-            "I led the effort to modify the entry points of our applications (e.g., middleware for web requests, wrappers for jobs) to read this configuration at startup.",
-            "At the beginning of each request or job, the system I designed injects this metadata into the thread's execution context.",
-            "I then updated our common logging and metrics libraries to automatically pull this metadata from the thread and enrich every log, metric, and trace.",
-        ],
-        results: [
-            "Enabled every engineering team to build their own dashboards in New Relic, filtered to their specific services and features.",
-            "Provided the ability to accurately attribute observability costs to the teams that were generating the data.",
-            "Vastly improved the debugging experience by providing rich, queryable context on all observability signals.",
-        ],
-        techStack: ["Ruby", "Java", "New Relic", "YAML", "Observability"],
+      id: "highspot-metadata",
+      title: "Observability Data Enrichment",
+      company: "Highspot",
+      resumePoint: "Architected a platform-wide metadata enrichment system, enabling team-specific observability dashboards and accurate cost attribution.",
+      problem: "As an organization, we had no visibility into which teams or features were generating our massive volume of observability data. This made it impossible for teams to create their own dashboards or for us to accurately budget and attribute observability costs.",
+      challenges: [
+        "Designing a system that could automatically capture context for various entry points, including web requests, background jobs, and other tasks.",
+        "Implementing this with minimal changes required from the dozens of development teams across the organization.",
+        "Navigating a large, complex codebase to identify all the correct entry points for injecting the metadata.",
+      ],
+      actions: [
+        "I designed a centralized, configuration-based system where a single YAML file maps every action (e.g., API endpoint, job name) to its owning team and feature.",
+        "I led the effort to modify the entry points of our applications (e.g., middleware for web requests, wrappers for jobs) to read this configuration at startup.",
+        "At the beginning of each request or job, the system I designed injects this metadata into the thread's execution context.",
+        "I then updated our common logging and metrics libraries to automatically pull this metadata from the thread and enrich every log, metric, and trace.",
+      ],
+      results: [
+        "Enabled every engineering team to build their own dashboards in New Relic, filtered to their specific services and features.",
+        "Provided the ability to accurately attribute observability costs to the teams that were generating the data.",
+        "Vastly improved the debugging experience by providing rich, queryable context on all observability signals.",
+      ],
+      techStack: ["Ruby", "Java", "New Relic", "YAML", "Observability"],
     },
     {
-        id: "highspot-launchdarkly",
-        title: "Feature Flag System Migration to LaunchDarkly",
-        company: "Highspot",
-        resumePoint: "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
-        problem: "Our in-house feature flagging system lacked advanced capabilities like user targeting and percentage rollouts. It was also becoming a maintenance burden, taking valuable engineering time away from product development.",
-        challenges: [
-            "Designing a seamless migration path that would not disrupt ongoing feature development or require a massive, coordinated refactoring effort across all teams.",
-            "Ensuring the new system was future-proof and could be easily adapted if we ever needed to switch to another vendor.",
-            "Cleaning up and migrating hundreds of existing feature flags, many of which were obsolete.",
-        ],
-        actions: [
-            "I architected a new, cross-platform abstraction library (for Ruby and Java) that provided a standard interface for feature flagging.",
-            "This library was designed with a fallback mechanism, allowing us to perform a phased migration: first using the legacy system with LaunchDarkly as a fallback, then switching to LaunchDarkly-first, and finally removing the legacy system completely.",
-            "I led the analysis of all existing flags and drove the effort to deprecate over 30% of them.",
-            "I wrote and executed the migration scripts to move all active flags and their variations to LaunchDarkly, including a thorough validation process.",
-        ],
-        results: [
-            "Empowered development teams with advanced release capabilities like percentage rollouts, advanced user targeting, and a full audit trail.",
-            "Eliminated the maintenance overhead of the legacy in-house system.",
-            "The abstract library design de-risked the migration and made the entire feature flagging system more maintainable and adaptable for the future.",
-        ],
-        techStack: ["LaunchDarkly", "Ruby", "Java", "Migration Strategy", "API Design"],
+      id: "highspot-launchdarkly",
+      title: "Feature Flag System Migration to LaunchDarkly",
+      company: "Highspot",
+      resumePoint: "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
+      problem: "Our in-house feature flagging system lacked advanced capabilities like user targeting and percentage rollouts. It was also becoming a maintenance burden, taking valuable engineering time away from product development.",
+      challenges: [
+        "Designing a seamless migration path that would not disrupt ongoing feature development or require a massive, coordinated refactoring effort across all teams.",
+        "Ensuring the new system was future-proof and could be easily adapted if we ever needed to switch to another vendor.",
+        "Cleaning up and migrating hundreds of existing feature flags, many of which were obsolete.",
+      ],
+      actions: [
+        "I architected a new, cross-platform abstraction library (for Ruby and Java) that provided a standard interface for feature flagging.",
+        "This library was designed with a fallback mechanism, allowing us to perform a phased migration: first using the legacy system with LaunchDarkly as a fallback, then switching to LaunchDarkly-first, and finally removing the legacy system completely.",
+        "I led the analysis of all existing flags and drove the effort to deprecate over 30% of them.",
+        "I wrote and executed the migration scripts to move all active flags and their variations to LaunchDarkly, including a thorough validation process.",
+      ],
+      results: [
+        "Empowered development teams with advanced release capabilities like percentage rollouts, advanced user targeting, and a full audit trail.",
+        "Eliminated the maintenance overhead of the legacy in-house system.",
+        "The abstract library design de-risked the migration and made the entire feature flagging system more maintainable and adaptable for the future.",
+      ],
+      techStack: ["LaunchDarkly", "Ruby", "Java", "Migration Strategy", "API Design"],
     },
     {
-        id: "deloitte-ifb",
-        title: "API Performance Optimization",
-        company: "Deloitte",
-        resumePoint: "Drastically improved a critical API's performance, reducing response time from over 60 seconds to under 1 second.",
-        problem: "A key API on the Interactive Framework Benchmark (IFB) website was taking over a minute to respond, making the user experience unusable and causing frequent timeouts.",
-        challenges: [
-            "Diagnosing the root cause of the performance issue within a large, unfamiliar, and custom-built PHP framework.",
-            "Refactoring the legacy code to be more efficient without introducing regressions.",
-        ],
-        actions: [
-            "I profiled the application and identified a classic N+1 query problem where the code was executing over 1,000 individual database queries inside a loop.",
-            "I dove into the unfamiliar codebase, understood the data model and business logic, and led the refactoring effort to use a single, optimized database query to fetch all the required data at once.",
-        ],
-        results: [
-            "Reduced the API response time from over 60 seconds to under 1 second, a ~98% improvement.",
-            "Made the interactive benchmark feature usable for clients.",
-            "Demonstrated the ability to quickly learn a new codebase and solve complex performance problems.",
-        ],
-        techStack: ["PHP", "Custom Framework", "MySQL", "Performance Tuning"],
+      id: "deloitte-ifb",
+      title: "API Performance Optimization",
+      company: "Deloitte",
+      resumePoint: "Drastically improved a critical API's performance, reducing response time from over 60 seconds to under 1 second.",
+      problem: "A key API on the Interactive Framework Benchmark (IFB) website was taking over a minute to respond, making the user experience unusable and causing frequent timeouts.",
+      challenges: [
+        "Diagnosing the root cause of the performance issue within a large, unfamiliar, and custom-built PHP framework.",
+        "Refactoring the legacy code to be more efficient without introducing regressions.",
+      ],
+      actions: [
+        "I profiled the application and identified a classic N+1 query problem where the code was executing over 1,000 individual database queries inside a loop.",
+        "I dove into the unfamiliar codebase, understood the data model and business logic, and led the refactoring effort to use a single, optimized database query to fetch all the required data at once.",
+      ],
+      results: [
+        "Reduced the API response time from over 60 seconds to under 1 second, a ~98% improvement.",
+        "Made the interactive benchmark feature usable for clients.",
+        "Demonstrated the ability to quickly learn a new codebase and solve complex performance problems.",
+      ],
+      techStack: ["PHP", "Custom Framework", "MySQL", "Performance Tuning"],
     },
     {
-        id: "infoedge-contact-engine",
-        title: "Contact Engine API Redesign",
-        company: "Infoedge",
-        resumePoint: "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application.",
-        problem: "The Contact Engine—the core system for all user interactions like sending interests and messages—was part of a monolith that rendered HTML directly. This architecture could not support the company's strategic goal of launching a mobile app, which required a modern, JSON-based API.",
-        challenges: [
-            "Rewriting a business-critical system from scratch without disrupting the existing website.",
-            "Designing a flexible system to handle complex business rules based on user subscription levels.",
-            "Creating a consistent API schema that could be consumed by both the web frontend and new mobile clients.",
-        ],
-        actions: [
-            "I led the initiative to re-architect the Contact Engine in the Symfony (PHP) MVC framework.",
-            "I designed a new database-driven decision engine to manage the complex logic of which actions a user could take based on their subscription status.",
-            "I chose the Factory design pattern to handle the different types of user interactions in a clean, maintainable way.",
-            "I collaborated closely with the mobile and frontend teams to define and deliver a versioned, RESTful API that served as the single source of truth for all client applications.",
-        ],
-        results: [
-            "Successfully unblocked the launch of the company's first mobile application.",
-            "Created a modern, scalable, and maintainable API-driven backend for a core business function.",
-            "Established a versioned API architecture that could evolve to support future features without breaking existing clients.",
-        ],
-        techStack: ["PHP", "Symfony", "API Design", "MySQL", "Factory Pattern"],
+      id: "infoedge-contact-engine",
+      title: "Contact Engine API Redesign",
+      company: "Infoedge",
+      resumePoint: "Led the architectural redesign of the Contact Engine backend, creating new, scalable APIs that supported the successful launch of the company's mobile application.",
+      problem: "The Contact Engine—the core system for all user interactions like sending interests and messages—was part of a monolith that rendered HTML directly. This architecture could not support the company's strategic goal of launching a mobile app, which required a modern, JSON-based API.",
+      challenges: [
+        "Rewriting a business-critical system from scratch without disrupting the existing website.",
+        "Designing a flexible system to handle complex business rules based on user subscription levels.",
+        "Creating a consistent API schema that could be consumed by both the web frontend and new mobile clients.",
+      ],
+      actions: [
+        "I led the initiative to re-architect the Contact Engine in the Symfony (PHP) MVC framework.",
+        "I designed a new database-driven decision engine to manage the complex logic of which actions a user could take based on their subscription status.",
+        "I chose the Factory design pattern to handle the different types of user interactions in a clean, maintainable way.",
+        "I collaborated closely with the mobile and frontend teams to define and deliver a versioned, RESTful API that served as the single source of truth for all client applications.",
+      ],
+      results: [
+        "Successfully unblocked the launch of the company's first mobile application.",
+        "Created a modern, scalable, and maintainable API-driven backend for a core business function.",
+        "Established a versioned API architecture that could evolve to support future features without breaking existing clients.",
+      ],
+      techStack: ["PHP", "Symfony", "API Design", "MySQL", "Factory Pattern"],
     },
     {
       id: "avyukta-startup",
@@ -434,7 +435,7 @@ const portfolioData = {
       ],
       techStack: ["AWS CloudFormation", "Solr", "Zookeeper", "Java", "PHP"],
     },
-     {
+    {
       id: "acquia-ping",
       title: "Scalable Monitoring for Solr Collections",
       company: "Acquia",
@@ -532,31 +533,42 @@ const portfolioData = {
       techStack: ["AWS Lambda", "API Gateway", "SSM Run Command", "New Relic", "Python"],
     },
     {
-        id: "logging-library",
-        title: "Cross-Platform Common Logging Library",
-        company: "Highspot",
-        resumePoint: "Architected and delivered a common logging library that reduced time spent on debugging by an estimated 15% across development teams.",
-        problem: "Logging was inconsistent across services, with four different libraries in use for Ruby alone. This created unstructured logs and a fragmented debugging context, with errors (in Rollbar) disconnected from logs (in ELK) and traces.",
-        challenges: [
-            "The solution needed to work across a polyglot stack: Ruby/Rails, Java, Clojure, and JavaScript/React.",
-            "Driving adoption across dozens of development teams required a significant coordination effort.",
-        ],
-        actions: [
-            "I architected a unified logging framework by establishing a common pattern across all services.",
-            "I designed and implemented language-specific logging libraries that acted as standardized wrappers around the native New Relic APM SDK.",
-            "These wrappers enforced a consistent, structured JSON log format and automatically injected APM metadata (trace_id, span_id) into every log line.",
-            "The library provided a simple, standard function for error reporting (e.g., logger.error()) that unified error reporting in New Relic's Error Inbox.",
-        ],
-        results: [
-            "Reduced debugging time by an estimated 15% by correlating logs, traces, and errors in a single platform.",
-            "Improved overall observability with structured, searchable logs.",
-            "Simplified onboarding for new engineers by providing a single, standard way of logging.",
-        ],
-        techStack: ["Ruby", "Java", "Clojure", "JavaScript", "React", "New Relic SDK"],
+      id: "logging-library",
+      title: "Cross-Platform Common Logging Library",
+      company: "Highspot",
+      resumePoint: "Architected and delivered a common logging library that reduced time spent on debugging by an estimated 15% across development teams.",
+      problem: "Logging was inconsistent across services, with four different libraries in use for Ruby alone. This created unstructured logs and a fragmented debugging context, with errors (in Rollbar) disconnected from logs (in ELK) and traces.",
+      challenges: [
+        "The solution needed to work across a polyglot stack: Ruby/Rails, Java, Clojure, and JavaScript/React.",
+        "Driving adoption across dozens of development teams required a significant coordination effort.",
+      ],
+      actions: [
+        "I architected a unified logging framework by establishing a common pattern across all services.",
+        "I designed and implemented language-specific logging libraries that acted as standardized wrappers around the native New Relic APM SDK.",
+        "These wrappers enforced a consistent, structured JSON log format and automatically injected APM metadata (trace_id, span_id) into every log line.",
+        "The library provided a simple, standard function for error reporting (e.g., logger.error()) that unified error reporting in New Relic's Error Inbox.",
+      ],
+      results: [
+        "Reduced debugging time by an estimated 15% by correlating logs, traces, and errors in a single platform.",
+        "Improved overall observability with structured, searchable logs.",
+        "Simplified onboarding for new engineers by providing a single, standard way of logging.",
+      ],
+      techStack: ["Ruby", "Java", "Clojure", "JavaScript", "React", "New Relic SDK"],
     },
   ],
   skills: {
-    Leadership: ["Team Building", "Mentoring", "Project Leadership", "Process Improvement", "Strategic Planning"],
+    "Leadership & Process": [
+      "Team Building",
+      "Mentoring",
+      "Strategic Decision-Making",
+      "Technical Problem-Solving",
+      "Agile Methodologies",
+      "Stakeholder Collaboration",
+      "Product Management Alignment",
+      "Project Leadership",
+      "Process Improvement",
+      "Strategic Planning"
+    ],
     Cloud_AWS: ["EC2", "S3", "RDS", "Aurora", "SQS", "SNS", "Elasticache", "CloudFront", "Route53", "CloudFormation", "Lambda", "API Gateway", "Step Functions", "SSM"],
     Backend: ["Node.js", "PHP", "Python", "Java", "Clojure", "Ruby", "Laravel", "Spring Boot", "Symfony", "LAMP Stack"],
     Frontend: ["JavaScript", "HTML5", "CSS", "jQuery", "Bootstrap", "React"],
@@ -590,11 +602,11 @@ const LinkedinIcon = ({ className }) => (
 );
 
 const ChevronRightIcon = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m9 18 6-6-6-6"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="m9 18 6-6-6-6" /></svg>
 );
 
 const XIcon = ({ className }) => (
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
 );
 
 
@@ -602,7 +614,7 @@ const XIcon = ({ className }) => (
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -615,7 +627,7 @@ const Header = () => {
     <header className="bg-gray-900/80 backdrop-blur-sm sticky top-0 z-50">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <h1 className="text-2xl font-bold text-white">{portfolioData.name}</h1>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6 text-gray-300">
           <button onClick={() => scrollToSection('about')} className="hover:text-cyan-400 transition-colors">About</button>
@@ -625,7 +637,7 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu Button */}
-        <button 
+        <button
           className="md:hidden text-gray-300 hover:text-cyan-400 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
@@ -643,26 +655,26 @@ const Header = () => {
       {isMobileMenuOpen && (
         <div className="md:hidden bg-gray-900/95 backdrop-blur-sm border-t border-gray-700">
           <div className="container mx-auto px-6 py-4 space-y-3">
-            <button 
-              onClick={() => scrollToSection('about')} 
+            <button
+              onClick={() => scrollToSection('about')}
               className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
             >
               About
             </button>
-            <button 
-              onClick={() => scrollToSection('experience')} 
+            <button
+              onClick={() => scrollToSection('experience')}
               className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
             >
               Experience
             </button>
-            <button 
-              onClick={() => scrollToSection('projects')} 
+            <button
+              onClick={() => scrollToSection('projects')}
               className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
             >
               Projects
             </button>
-            <button 
-              onClick={() => scrollToSection('skills')} 
+            <button
+              onClick={() => scrollToSection('skills')}
               className="block w-full text-left text-gray-300 hover:text-cyan-400 transition-colors py-2"
             >
               Skills
@@ -684,16 +696,16 @@ const Hero = () => (
         {portfolioData.heroSubtitle}
       </p>
       <div className="mt-8 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6 text-gray-400">
-        <a href={`mailto:${portfolioData.contact.email}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
-          <MailIcon className="w-5 h-5 flex-shrink-0" />
+        <a href={`mailto:${portfolioData.contact.email}`} className="group flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <MailIcon className="w-6 h-6 flex-shrink-0 text-gray-300 group-hover:text-cyan-400 transition-colors" />
           <span className="text-sm sm:text-base">{portfolioData.contact.email}</span>
         </a>
-        <a href={`tel:${portfolioData.contact.phone}`} className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
-          <PhoneIcon className="w-5 h-5 flex-shrink-0" />
+        <a href={`tel:${portfolioData.contact.phone}`} className="group flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <PhoneIcon className="w-6 h-6 flex-shrink-0 text-gray-300 group-hover:text-cyan-400 transition-colors" />
           <span className="text-sm sm:text-base">{portfolioData.contact.phone}</span>
         </a>
-        <a href={`https://${portfolioData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
-          <LinkedinIcon className="w-5 h-5 flex-shrink-0" />
+        <a href={`https://${portfolioData.contact.linkedin}`} target="_blank" rel="noopener noreferrer" className="group flex items-center space-x-2 hover:text-cyan-400 transition-colors px-4 py-2 rounded-lg hover:bg-gray-800/50">
+          <LinkedinIcon className="w-6 h-6 flex-shrink-0 text-gray-300 group-hover:text-cyan-400 transition-colors" />
           <span className="text-sm sm:text-base">LinkedIn</span>
         </a>
       </div>
@@ -762,7 +774,7 @@ const Experience = () => (
 
 const Projects = ({ onProjectSelect }) => {
   const [selectedCompany, setSelectedCompany] = useState('All');
-  
+
   // Get unique companies from projects and sort by work timeline
   const getCompanyOrder = (companyName) => {
     const companyTimeline = {
@@ -774,7 +786,7 @@ const Projects = ({ onProjectSelect }) => {
       'Darwin Box Digital Solution Pvt Ltd': 6,
       'Highspot India Pvt Ltd': 7
     };
-    
+
     // Handle variations in company names
     for (const [key, value] of Object.entries(companyTimeline)) {
       if (companyName.includes(key.split(' ')[0]) || key.includes(companyName.split(' ')[0])) {
@@ -783,12 +795,12 @@ const Projects = ({ onProjectSelect }) => {
     }
     return 999; // Default for any unmatched companies
   };
-  
+
   const companies = ['All', ...Array.from(new Set(portfolioData.projects.map(project => project.company)))
     .sort((a, b) => getCompanyOrder(a) - getCompanyOrder(b))];
-  
+
   // Filter projects based on selected company and sort chronologically (latest first)
-  const filteredProjects = selectedCompany === 'All' 
+  const filteredProjects = selectedCompany === 'All'
     ? [...portfolioData.projects].sort((a, b) => getCompanyOrder(b.company) - getCompanyOrder(a.company))
     : portfolioData.projects.filter(project => project.company === selectedCompany);
 
@@ -796,7 +808,7 @@ const Projects = ({ onProjectSelect }) => {
     <section id="projects" className="py-20 bg-gray-800">
       <div className="container mx-auto px-6">
         <h3 className="text-3xl font-bold text-white mb-8">Key Projects & Achievements</h3>
-        
+
         {/* Company Filter */}
         <div className="mb-8">
           <div className="flex flex-wrap gap-2 md:gap-3">
@@ -804,11 +816,10 @@ const Projects = ({ onProjectSelect }) => {
               <button
                 key={company}
                 onClick={() => setSelectedCompany(company)}
-                className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 ${
-                  selectedCompany === company
+                className={`px-3 md:px-4 py-2 rounded-full text-xs md:text-sm font-medium transition-all duration-200 ${selectedCompany === company
                     ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/25'
                     : 'bg-gray-700 text-gray-300 hover:bg-gray-600 hover:text-white'
-                }`}
+                  }`}
               >
                 {company} {company !== 'All' && `(${portfolioData.projects.filter(p => p.company === company).length})`}
               </button>
@@ -825,7 +836,7 @@ const Projects = ({ onProjectSelect }) => {
                 <h4 className="text-lg md:text-xl font-bold text-white mt-2">{project.title}</h4>
                 <p className="text-gray-400 mt-2 text-sm leading-relaxed">{project.resumePoint}</p>
               </div>
-              <button 
+              <button
                 onClick={() => onProjectSelect(project)}
                 className="mt-4 md:mt-6 text-cyan-400 font-semibold flex items-center group text-sm md:text-base"
               >
@@ -872,80 +883,80 @@ const Skills = () => (
 );
 
 const Education = () => (
-    <section id="education" className="py-20 bg-gray-800">
-        <div className="container mx-auto px-6">
-            <h3 className="text-3xl font-bold text-white mb-12">Education & Certifications</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-                <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
-                    <h4 className="text-lg md:text-xl font-bold text-white">{portfolioData.education.degree}</h4>
-                    <p className="text-cyan-400 mt-1 text-sm md:text-base">{portfolioData.education.institution}</p>
-                    <p className="text-gray-400 text-xs md:text-sm mt-2">{portfolioData.education.period} | {portfolioData.education.location}</p>
-                </div>
-                <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
-                     <h4 className="text-lg md:text-xl font-bold text-white">Certifications & Public Speaking</h4>
-                     <ul className="mt-2 list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
-                        {portfolioData.certifications.map((cert, i) => <li key={i} className="leading-relaxed">{cert}</li>)}
-                     </ul>
-                </div>
-            </div>
+  <section id="education" className="py-20 bg-gray-800">
+    <div className="container mx-auto px-6">
+      <h3 className="text-3xl font-bold text-white mb-12">Education & Certifications</h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
+          <h4 className="text-lg md:text-xl font-bold text-white">{portfolioData.education.degree}</h4>
+          <p className="text-cyan-400 mt-1 text-sm md:text-base">{portfolioData.education.institution}</p>
+          <p className="text-gray-400 text-xs md:text-sm mt-2">{portfolioData.education.period} | {portfolioData.education.location}</p>
         </div>
-    </section>
+        <div className="bg-gray-900 p-4 md:p-6 rounded-lg">
+          <h4 className="text-lg md:text-xl font-bold text-white">Certifications & Public Speaking</h4>
+          <ul className="mt-2 list-disc list-inside text-gray-400 space-y-2 text-sm md:text-base">
+            {portfolioData.certifications.map((cert, i) => <li key={i} className="leading-relaxed">{cert}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 );
 
 const ProjectModal = ({ project, onClose }) => {
   if (!project) return null;
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2 md:p-4"
       onClick={onClose}
     >
-      <div 
+      <div
         className="bg-gray-800 rounded-lg shadow-2xl w-full max-w-3xl max-h-[95vh] md:max-h-[90vh] overflow-y-auto"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="p-4 md:p-6 lg:p-8 sticky top-0 bg-gray-800/80 backdrop-blur-sm flex justify-between items-center border-b border-gray-700">
-            <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white pr-4">{project.title}</h3>
-            <button onClick={onClose} className="text-gray-400 hover:text-white flex-shrink-0">
-                <XIcon className="w-5 h-5 md:w-6 md:h-6" />
-            </button>
+          <h3 className="text-lg md:text-xl lg:text-2xl font-bold text-white pr-4">{project.title}</h3>
+          <button onClick={onClose} className="text-gray-400 hover:text-white flex-shrink-0">
+            <XIcon className="w-5 h-5 md:w-6 md:h-6" />
+          </button>
         </div>
-        
+
         <div className="p-4 md:p-6 lg:p-8 space-y-6 md:space-y-8">
+          <div>
+            <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Problem</h4>
+            <p className="text-gray-300 leading-relaxed text-sm md:text-base">{project.problem}</p>
+          </div>
+          <div>
+            <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">Key Challenges</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
+              {project.challenges.map((challenge, i) => <li key={i}>{challenge}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">My Actions & Contributions</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
+              {project.actions.map((action, i) => <li key={i}>{action}</li>)}
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Results</h4>
+            <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
+              {project.results.map((result, i) => <li key={i}>{result}</li>)}
+            </ul>
+          </div>
+          {project.techStack && (
             <div>
-                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Problem</h4>
-                <p className="text-gray-300 leading-relaxed text-sm md:text-base">{project.problem}</p>
+              <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-3">Technologies Used</h4>
+              <div className="flex flex-wrap gap-2 md:gap-3">
+                {project.techStack.map((tech) => (
+                  <span key={tech} className="bg-gray-700 text-gray-200 text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">
+                    {tech}
+                  </span>
+                ))}
+              </div>
             </div>
-             <div>
-                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">Key Challenges</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
-                    {project.challenges.map((challenge, i) => <li key={i}>{challenge}</li>)}
-                </ul>
-            </div>
-             <div>
-                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">My Actions & Contributions</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
-                    {project.actions.map((action, i) => <li key={i}>{action}</li>)}
-                </ul>
-            </div>
-             <div>
-                <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-2">The Results</h4>
-                <ul className="list-disc list-inside text-gray-300 space-y-2 leading-relaxed text-sm md:text-base">
-                    {project.results.map((result, i) => <li key={i}>{result}</li>)}
-                </ul>
-            </div>
-            {project.techStack && (
-                 <div>
-                    <h4 className="text-base md:text-lg font-semibold text-cyan-400 mb-3">Technologies Used</h4>
-                    <div className="flex flex-wrap gap-2 md:gap-3">
-                        {project.techStack.map((tech) => (
-                            <span key={tech} className="bg-gray-700 text-gray-200 text-xs md:text-sm font-medium px-3 md:px-4 py-1.5 md:py-2 rounded-full">
-                                {tech}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            )}
+          )}
         </div>
       </div>
     </div>
@@ -986,7 +997,7 @@ export default function App() {
       </main>
       <footer className="bg-gray-800 py-6">
         <div className="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; {new Date().getFullYear()} {portfolioData.name}. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {portfolioData.name}. All Rights Reserved.</p>
         </div>
       </footer>
       <ProjectModal project={selectedProject} onClose={handleCloseModal} />
