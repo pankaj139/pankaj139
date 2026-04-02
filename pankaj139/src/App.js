@@ -49,6 +49,7 @@ const portfolioData = {
         "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
         "Drove a strategic migration of observability tools to New Relic, resulting in $1 million in annual savings.",
         "Initiated and owned the development of automated incident resolution processes for Solr, reducing MTTR by 40%.",
+        "Led AWS cost optimization combining EBS volume right-sizing on Kubernetes from usage-pattern analysis and CloudWatch cleanup (auditing telemetry and retiring unnecessary entities), delivering ~$300K in combined annual savings.",
       ],
     },
     {
@@ -175,6 +176,29 @@ const portfolioData = {
         "The abstract library design de-risked the migration and made the entire feature flagging system more maintainable and adaptable for the future.",
       ],
       techStack: ["LaunchDarkly", "Ruby", "Java", "Migration Strategy", "API Design"],
+    },
+    {
+      id: "highspot-aws-cost-optimization",
+      title: "AWS Cost Optimization (EBS Volumes & CloudWatch)",
+      company: "Highspot",
+      resumePoint: "Delivered ~$300K in combined annual AWS savings by right-sizing EBS-backed storage from Kubernetes usage patterns and reducing CloudWatch spend by auditing usage and removing unneeded metrics, log groups, and related resources.",
+      problem: "AWS spend was growing across storage and observability: EBS volumes provisioned for Kubernetes workloads were oversized relative to actual usage, and CloudWatch had accumulated metrics, log groups, and related resources that no longer provided value—driving unnecessary cost without clear ownership.",
+      challenges: [
+        "Building a trustworthy view of real utilization versus provisioned EBS volume capacity for Kubernetes workloads without disrupting production stability.",
+        "Separating essential observability signals from legacy or redundant CloudWatch entities that could be safely retired.",
+        "Coordinating changes with platform and service teams so optimizations did not reduce reliability or blind on-call response.",
+      ],
+      actions: [
+        "Analyzed historical usage patterns for workloads on Kubernetes to identify over-provisioned EBS-backed volumes relative to actual storage demand.",
+        "Defined and executed EBS volume right-sizing and cleanup aligned to observed peaks and growth, with guardrails for burst and failover.",
+        "Audited CloudWatch usage end-to-end: metrics, dashboards, alarms, and log ingestion paths—to map cost drivers and ownership.",
+        "Removed or consolidated unnecessary CloudWatch entities and tuned retention and verbosity where appropriate, focusing on eliminating noise while preserving SLO-critical visibility.",
+      ],
+      results: [
+        "Achieved approximately $300,000 in combined annual savings: EBS volume optimization on Kubernetes from usage-pattern analysis plus CloudWatch cost reduction from retiring unused or redundant telemetry entities and aligning spend to operational need.",
+        "Established a repeatable approach (measure → decide → change → verify) for future AWS cost reviews in the same domains.",
+      ],
+      techStack: ["AWS", "Kubernetes", "EBS", "CloudWatch", "Cost Optimization", "FinOps"],
     },
     {
       id: "deloitte-ifb",
