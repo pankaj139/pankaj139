@@ -27,29 +27,27 @@ import { updateSEO } from './utils/seo';
 // It's a best practice to keep your data separate from your components.
 const portfolioData = {
   name: "Pankaj Khandelwal",
-  title: "Tech Lead & Engineering Manager",
-  heroTitle: "Tech Lead & Engineering Manager with Proven Leadership",
-  heroSubtitle: "A seasoned technical leader with Engineering Manager experience, focused on mentorship, process improvement, and delivering business impact.",
+  title: "Senior Engineering Manager",
+  heroTitle: "Senior Engineering Manager Leading Subscription Platforms",
+  heroSubtitle: "Leading Highspot's Subscription team focused on bulk pitch delivery, send-on-behalf workflows, and high email deliverability at scale.",
   location: "Hyderabad",
   contact: {
     phone: "981-030-0513",
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. My approach is rooted in Agile methodologies and data-driven decision-making to solve critical business problems. I excel at the intersection of technical architecture and product management, translating product vision into reliable and scalable software. I am passionate about mentoring engineers and fostering a culture of collaborative problem-solving and continuous improvement.",
+  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I currently serve as a Senior Engineering Manager at Highspot, leading the Subscription team responsible for bulk pitch delivery and send-on-behalf email capabilities. My focus is on building reliable systems, growing strong teams, and navigating the operational complexity of domain and IP reputation to sustain high deliverability at scale.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
-      role: "Sr. Software Development Engineer / Tech Lead",
+      role: "Senior Engineering Manager, Subscription Team",
       period: "Apr 2024 - Present",
       location: "Hyderabad, India",
       points: [
-        "Led and mentored a technical team of 6 engineers focused on critical DevOps and Observability initiatives.",
-        "Architected a platform-wide metadata enrichment system, enabling team-specific observability dashboards and accurate cost attribution.",
-        "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
-        "Drove a strategic migration of observability tools to New Relic, resulting in $1 million in annual savings.",
-        "Initiated and owned the development of automated incident resolution processes for Solr, reducing MTTR by 40%.",
-        "Led AWS cost optimization combining EBS volume right-sizing on Kubernetes from usage-pattern analysis and CloudWatch cleanup (auditing telemetry and retiring unnecessary entities), delivering ~$300K in combined annual savings.",
+        "Lead Highspot's Subscription team, which owns bulk pitch delivery and send-on-behalf email capabilities for customer communications.",
+        "Guide the team's strategy for maintaining strong domain and IP reputation so bulk email programs sustain high deliverability at scale.",
+        "Drive execution across product, engineering, and operational concerns to balance customer growth use cases with sender trust and platform reliability.",
+        "Mentor engineers and technical leads while building a team culture centered on ownership, operational rigor, and measurable customer impact.",
       ],
     },
     {

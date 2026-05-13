@@ -1,6 +1,6 @@
 # Pankaj Khandelwal
 
-### Engineering Leader | Cloud Architect | Team Builder
+### Senior Engineering Manager | Subscription Platforms | Email Deliverability
 
 [<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />](https://linkedin.com/in/pankaj139)
 [<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />](mailto:pankaj139@gmail.com)
@@ -10,9 +10,9 @@
 
 ### Hi there! 👋 I'm Pankaj.
 
-I'm an engineering leader with over a decade of experience transforming complex technical challenges into scalable, reliable, and impactful software. My passion lies in building and mentoring high-performing teams, fostering a culture of ownership, and driving technical excellence. I believe that the best products are built by empowered engineers who have the psychological safety to innovate and the clear processes to execute effectively.
+I'm a senior engineering manager with over a decade of experience transforming complex technical challenges into scalable, reliable, and impactful software. My passion lies in building and mentoring high-performing teams, fostering a culture of ownership, and driving technical excellence. I believe that the best products are built by empowered engineers who have the psychological safety to innovate and the clear processes to execute effectively.
 
-My approach is hands-on and data-driven. I specialize in modernizing legacy systems, architecting resilient cloud infrastructure, and establishing the engineering best practices that enable teams to ship with speed and confidence.
+At Highspot, I lead the Subscription team responsible for bulk pitch delivery, including send-on-behalf-of capabilities. My current focus is navigating the complexity of domain and IP reputation so we can maintain high deliverability for customer-facing email at scale.
 
 ---
 
