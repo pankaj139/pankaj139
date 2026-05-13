@@ -28,26 +28,40 @@ import { updateSEO } from './utils/seo';
 const portfolioData = {
   name: "Pankaj Khandelwal",
   title: "Senior Engineering Manager",
-  heroTitle: "Senior Engineering Manager Leading Subscription Platforms",
-  heroSubtitle: "Leading Highspot's Subscription team focused on bulk pitch delivery, send-on-behalf workflows, and high email deliverability at scale.",
+  heroTitle: "Senior Engineering Manager | Engineering Leader & Cloud Architect",
+  heroSubtitle: "Recently transitioned to leading Highspot's Subscription team. Strong background in DevOps, observability, and cloud infrastructure, now ramping up on bulk email delivery and sender reputation.",
   location: "Hyderabad",
   contact: {
     phone: "981-030-0513",
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I currently serve as a Senior Engineering Manager at Highspot, leading the Subscription team responsible for bulk pitch delivery and send-on-behalf email capabilities. My focus is on building reliable systems, growing strong teams, and navigating the operational complexity of domain and IP reputation to sustain high deliverability at scale.",
+  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I recently moved into a Senior Engineering Manager role at Highspot, now leading the Subscription team which owns bulk pitch delivery and send-on-behalf email capabilities. I bring strong expertise in DevOps, observability, and cloud infrastructure from my previous role on the platform team, and I'm actively learning the domain of bulk email delivery and sender reputation management.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
       role: "Senior Engineering Manager, Subscription Team",
-      period: "Apr 2024 - Present",
+      period: "May 2026 - Present",
       location: "Hyderabad, India",
       points: [
-        "Lead Highspot's Subscription team, which owns bulk pitch delivery and send-on-behalf email capabilities for customer communications.",
-        "Guide the team's strategy for maintaining strong domain and IP reputation so bulk email programs sustain high deliverability at scale.",
-        "Drive execution across product, engineering, and operational concerns to balance customer growth use cases with sender trust and platform reliability.",
-        "Mentor engineers and technical leads while building a team culture centered on ownership, operational rigor, and measurable customer impact.",
+        "Recently transitioned into leading the Subscription team, which owns bulk pitch delivery and send-on-behalf email capabilities for customer communications.",
+        "Ramping up on the team's challenges around domain and IP reputation management to sustain deliverability for high-volume customer-facing email.",
+        "Bringing engineering leadership experience from the platform team to build team culture, prioritize roadmap, and drive reliable delivery.",
+        "Collaborating with product and cross-functional stakeholders to shape the technical direction for bulk email infrastructure.",
+      ],
+    },
+    {
+      company: "Highspot India Pvt Ltd",
+      role: "Sr. Software Development Engineer / Tech Lead",
+      period: "Apr 2024 - May 2026",
+      location: "Hyderabad, India",
+      points: [
+        "Led and mentored a technical team of 6 engineers focused on critical DevOps and Observability initiatives.",
+        "Architected a platform-wide metadata enrichment system, enabling team-specific observability dashboards and accurate cost attribution.",
+        "Architected and led the migration from an in-house feature flag system to LaunchDarkly, improving release safety and developer velocity.",
+        "Drove a strategic migration of observability tools to New Relic, resulting in $1 million in annual savings.",
+        "Initiated and owned the development of automated incident resolution processes for Solr, reducing MTTR by 40%.",
+        "Led AWS cost optimization combining EBS volume right-sizing on Kubernetes from usage-pattern analysis and CloudWatch cleanup (auditing telemetry and retiring unnecessary entities), delivering ~$300K in combined annual savings.",
       ],
     },
     {

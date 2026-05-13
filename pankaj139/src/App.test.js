@@ -4,9 +4,9 @@ import App from './App';
 test('renders updated leadership profile content', () => {
   render(<App />);
   expect(
-    screen.getByText(/Senior Engineering Manager Leading Subscription Platforms/i)
+    screen.getByText(/Senior Engineering Manager \| Engineering Leader & Cloud Architect/i)
   ).toBeInTheDocument();
   expect(
-    screen.getByText(/Leading Highspot's Subscription team focused on bulk pitch delivery/i)
+    screen.getByText(/Recently transitioned to leading Highspot's Subscription team/i)
   ).toBeInTheDocument();
 });
