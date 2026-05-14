@@ -28,15 +28,15 @@ import { updateSEO } from './utils/seo';
 const portfolioData = {
   name: "Pankaj Khandelwal",
   title: "Senior Engineering Manager",
-  heroTitle: "Senior Engineering Manager | Engineering Leader & Cloud Architect",
-  heroSubtitle: "Recently transitioned to leading Highspot's Subscription team. Strong background in DevOps, observability, and cloud infrastructure, now ramping up on bulk email delivery and sender reputation.",
+  heroTitle: "Senior Engineering Manager Leading Subscription Platforms",
+  heroSubtitle: "Leading Highspot's Subscription team focused on bulk pitch delivery, send-on-behalf workflows, and high email deliverability at scale.",
   location: "Hyderabad",
   contact: {
     phone: "981-030-0513",
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I recently moved into a Senior Engineering Manager role at Highspot, now leading the Subscription team which owns bulk pitch delivery and send-on-behalf email capabilities. I bring strong expertise in DevOps, observability, and cloud infrastructure from my previous role on the platform team, and I'm actively learning the domain of bulk email delivery and sender reputation management.",
+  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I currently serve as a Senior Engineering Manager at Highspot, leading the Subscription team responsible for bulk pitch delivery and send-on-behalf email capabilities. My focus is on building reliable systems, growing strong teams, and navigating the operational complexity of domain and IP reputation to sustain high deliverability at scale.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
