@@ -1,8 +1,12 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders updated leadership profile content', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(
+    screen.getByText(/Senior Engineering Manager Leading Subscription Platforms/i)
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText(/Leading Highspot's Subscription team focused on bulk pitch delivery/i)
+  ).toBeInTheDocument();
 });

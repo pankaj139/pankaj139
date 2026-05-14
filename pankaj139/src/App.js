@@ -27,21 +27,33 @@ import { updateSEO } from './utils/seo';
 // It's a best practice to keep your data separate from your components.
 const portfolioData = {
   name: "Pankaj Khandelwal",
-  title: "Tech Lead & Engineering Manager",
-  heroTitle: "Tech Lead & Engineering Manager with Proven Leadership",
-  heroSubtitle: "A seasoned technical leader with Engineering Manager experience, focused on mentorship, process improvement, and delivering business impact.",
+  title: "Senior Engineering Manager",
+  heroTitle: "Senior Engineering Manager Leading Subscription Platforms",
+  heroSubtitle: "Leading Highspot's Subscription team focused on bulk pitch delivery, send-on-behalf workflows, and high email deliverability at scale.",
   location: "Hyderabad",
   contact: {
     phone: "981-030-0513",
     email: "pankaj139@gmail.com",
     linkedin: "linkedin.com/in/pankaj139",
   },
-  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. My approach is rooted in Agile methodologies and data-driven decision-making to solve critical business problems. I excel at the intersection of technical architecture and product management, translating product vision into reliable and scalable software. I am passionate about mentoring engineers and fostering a culture of collaborative problem-solving and continuous improvement.",
+  summary: "Seasoned engineering leader with over a decade of experience guiding teams through complex technical challenges. I currently serve as a Senior Engineering Manager at Highspot, leading the Subscription team responsible for bulk pitch delivery and send-on-behalf email capabilities. My focus is on building reliable systems, growing strong teams, and navigating the operational complexity of domain and IP reputation to sustain high deliverability at scale.",
   experiences: [
     {
       company: "Highspot India Pvt Ltd",
+      role: "Senior Engineering Manager, Subscription Team",
+      period: "May 2026 - Present",
+      location: "Hyderabad, India",
+      points: [
+        "Recently transitioned into leading the Subscription team, which owns bulk pitch delivery and send-on-behalf email capabilities for customer communications.",
+        "Ramping up on the team's challenges around domain and IP reputation management to sustain deliverability for high-volume customer-facing email.",
+        "Bringing engineering leadership experience from the platform team to build team culture, prioritize roadmap, and drive reliable delivery.",
+        "Collaborating with product and cross-functional stakeholders to shape the technical direction for bulk email infrastructure.",
+      ],
+    },
+    {
+      company: "Highspot India Pvt Ltd",
       role: "Sr. Software Development Engineer / Tech Lead",
-      period: "Apr 2024 - Present",
+      period: "Apr 2024 - May 2026",
       location: "Hyderabad, India",
       points: [
         "Led and mentored a technical team of 6 engineers focused on critical DevOps and Observability initiatives.",
